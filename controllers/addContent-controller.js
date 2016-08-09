@@ -2,7 +2,11 @@
 module.exports = function(app, models) {
     console.log('addContent controller loaded.');
 
-    app.get('/:user', function(req, res) {
-
+    app.get('/:user/:page', function(req, res) {
+    // 	burger.findAll({}).then(function(data) {
+    //     var hbsObject = { burgers: data }
+    //     console.log(hbsObject);
+    //     res.render('index', hbsObject);
+    // });
     });
 }

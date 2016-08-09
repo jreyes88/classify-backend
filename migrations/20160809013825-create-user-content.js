@@ -20,6 +20,9 @@ module.exports = {
             pageID: {
                 type: Sequelize.INTEGER
             },
+            pagePosition:{
+                type: Sequelize.INTEGER
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
