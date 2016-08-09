@@ -41,4 +41,9 @@ $(document).ready(function() {
 
     })
 
+<<<<<<< HEAD
 })
+=======
+	})
+})
+>>>>>>> 1dd8f8af050e7518e6119a6e070c9971c8a61637
