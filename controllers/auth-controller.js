@@ -3,8 +3,8 @@ const saltRounds = 10;
 
 
 
-var authController = {
-    newUser: app.post('/user/create', function(req, res) {
+var AuthController = function() {
+    this.newUser: app.post('/user/create', function(req, res) {
         console.log(req.body);
         
         models.userid.create({
@@ -15,7 +15,9 @@ var authController = {
         });
         res.send('Thank you for signing up');
     });
-    checkUser:
+
+    // NOT BUILT YET ///////////////////////////////////////////
+    this.checkUser:
     // Load hash from your password DB. 
         bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
         // res == true 
