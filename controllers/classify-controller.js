@@ -17,6 +17,11 @@ router.get('/classify', function(req, res) {
 
 router.get('/squad', function(req, res) {
 	// res.render('/squad');
-})
+});
 console.log('Main router loaded.');
+
+
+router.get('/createDomain', function(req, res) {
+	res.render('./partials/domSubmission');
+})
 module.exports = router;
