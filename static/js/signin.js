@@ -6,7 +6,9 @@ $(document).ready(function() {
                 url: '/signup',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password },
+
+                data: { userName, password }
+
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);
@@ -17,12 +19,16 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
-    })
+
+    });
+
 
     $('#headerSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
-        console.log(userName + "  " + password);
+        console.log('userName: ' + userName);
+        console.log('password: ' + password);
+
         $.ajax({
                 url: '/signin',
                 type: 'POST',
@@ -40,10 +46,4 @@ $(document).ready(function() {
             });
 
     })
-
-<<<<<<< HEAD
 })
-=======
-	})
-})
->>>>>>> 1dd8f8af050e7518e6119a6e070c9971c8a61637
