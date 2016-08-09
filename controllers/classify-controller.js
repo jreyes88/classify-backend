@@ -1,18 +1,11 @@
 var express = require('express');
-var classify = require('../models')['usercontent', 'userdomain', 'userid', 'userpage', 'usertemplates'];
-var router = express.Router();
-var loginController = require('../controllers/login-controller.js');
-
-//all of the Seqeulize models.
 var models = require('../models');
-// var userID = require('../models')['userid'];
-// var userContent = require('../models')['usercontent'];
-// var userTemplates = require('../models')['usertemplates'];
-// var userDomain = require('../models')['userdomain'];
-// var userPage = require('../modes')['userpage'];
+var router = express.Router();
+var loginController = require('./login-controller.js');
 
 
 
+loginController(router, models);
 
 router.get('/', function(req, res) {
     res.redirect('/classify');
