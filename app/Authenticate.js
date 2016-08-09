@@ -1,9 +1,7 @@
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-
-
-var AuthController = function() {
+var Authenticate = function() {
     this.newUser = function() {
         app.post('/user/create', function(req, res) {
                 console.log(req.body);
@@ -14,7 +12,8 @@ var AuthController = function() {
                     password: bcrypt.hash(req.body.password, saltRounds, function(err, hash) {}),
                     email: req.body.email
                 });
-                res.send('Thank you for signing up');
+                console.log(userid);
+                // res.send('Thank you for signing up');
             })
         };
 
@@ -24,11 +23,13 @@ var AuthController = function() {
         // Load hash from your password DB. 
         bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
             // res == true 
+            console.log('this user would be authenticated if they were real!');
         });
         bcrypt.compare(someOtherPlaintextPassword, hash, function(err, res) {
-            // res == false 
+            // NEED A FAILED LOG IN PAGE
+            res.redirect('/classify');
         });
     }
 }
-console.log('auth controller loaded.');
-module.exports = AuthController;
+console.log('auth package loaded.');
+module.exports = Authenticate;

@@ -1,7 +1,7 @@
 var express = require('express');
 var classify = require('../models')['usercontent', 'userdomain', 'userid', 'userpage', 'usertemplates'];
 var router = express.Router();
-var authController = require('../controllers/auth-controller.js');
+var loginController = require('../controllers/login-controller.js');
 
 //all of the Seqeulize models.
 var models = require('../models');
@@ -21,5 +21,5 @@ router.get('/', function(req, res) {
 router.get('/classify', function(req, res) {
     //
 });
-console.log('main router loaded...');
+console.log('Main router loaded.');
 module.exports = router;
