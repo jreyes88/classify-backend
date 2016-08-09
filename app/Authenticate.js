@@ -1,20 +1,16 @@
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-var Authenticate = function() {
-    // NOT BUILT YET ///////////////////////////////////////////
-    this.checkUser = function() {
-
-        // Load hash from your password DB. 
-        bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
-            // res == true 
-            console.log('this user would be authenticated if they were real!');
-        });
-        bcrypt.compare(someOtherPlaintextPassword, hash, function(err, res) {
-            // NEED A FAILED LOG IN PAGE
-            res.redirect('/classify');
-        });
-    }
+var authenticate = function(password, hash) {
+    console.log('in the check user function');
+    // Load hash from your password DB.
+    var result;
+    bcrypt.compare(password, hash, function(err, res) {
+        result = res;
+        return result;
+    });
+    return result;
 }
+
 console.log('auth package loaded.');
-module.exports = Authenticate;
+module.exports = authenticate;

@@ -1,46 +1,64 @@
 // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
 // one way to implement middleware for authenticating users w/ login
 // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
-var Authenticate = require('../app/Authenticate.js');
+var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-function checkAuth(req, res, next) {
-    // do any checks you want to in here
-    var post = req.body;
-    console.log(post);
-    // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
-    // you can do this however you want with whatever variables you set up
-    if (post.user === 'john' && post.password === 'password') {
-        return next();
-    }
-    // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
-    res.send('login-denied');
-}
+// function checkAuth(req, res, next) {
+//     // do any checks you want to in here
+//     console.log(req.body);
+//     models.userID.findOne({where: { username: req.body.username}})
+//     .then(function(users){
+//   		console.log(users);
+//     })
+// CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
+// var checkedPassword = Authenticate.checkUser();
+// // you can do this however you want with whatever variables you set up
+// if (checkedPassword === true) {
+//     return next();
+// } else {
+//     // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
+//     res.send('Try again!');
+// }
+// }
 
 
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
-    app.get('/signin', checkAuth, function(req, res) {
-        res.send('login successful');
-    });
+    app.post('/signin', function(req, res) {
+        console.log(req.body);
+        models.userID.findOne({ where: { username: req.body.userName } }).then(function(loginUser) {
+            if (loginUser !== null) {
+                var auth = authenticate(req.body.password, loginUser.password);
+                console.log("auth returns " + auth);
+                if (auth === true) {
+                    res.send('it worked!');
+                } else {
+                    res.send('login failed');
+                }
+            } else {
+                res.send('no user found!');
+            }
+        })
+    })
     app.post('/signup', function(req, res) {
         var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
             if (err) {
                 throw err;
             } else {
-            	var hashedPassword = hash;
+                var hashedPassword = hash;
             };
             models.userID.create({
-                    // name: req.body.name,
-                    username: req.body.userName,
-                    password: hashedPassword
-                })
+                // name: req.body.name,
+                username: req.body.userName,
+                password: hashedPassword
+            })
         });
         res.end('{"done" : "Updated Successfully", "status" : 200}');
     })
-}
+};
 
 // login route
 // app.post('/login', function(req, res) {
