@@ -19,6 +19,7 @@ $(document).ready(function() {
             });
     });
 
+
     $('#headerSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();

@@ -24,6 +24,7 @@ const saltRounds = 10;
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
+
     app.post('/signin', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
             .then(function(loginUser) {
@@ -47,20 +48,35 @@ module.exports = function(app, models) {
     });
     // res.send('login successful');
     // checkAuth(data);
+
     app.post('/signup', function(req, res) {
-        var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-            if (err) {
-                throw err;
-            } else {
-                var hashedPassword = hash;
-            };
-            models.userID.create({
-                // name: req.body.name,
-                username: req.body.userName,
-                password: hashedPassword
+        models.userID.findOne({ where: { username: req.body.userName } })
+            .then(function(duplicateUser) {
+                console.log("Duplicate user: " + JSON.stringify(duplicateUser));
+                if (duplicateUser) {
+                    // window.alert('Please select a different user name!');
+                    res.redirect('/signup');
+                } else {
+
+
+                    console.log('signing up!');
+                    var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+                        if (err) {
+                            throw err;
+                        } else {
+                            var hashedPassword = hash;
+                        };
+                        console.log(hashedPassword);
+
+                        models.userID.create({
+                            // name: req.body.name,
+                            username: req.body.userName,
+                            password: hashedPassword
+                        })
+                    });
+                    res.end('{"done" : "Updated Successfully", "status" : 200}');
+                }
             })
-        });
-        res.end('{"done" : "Updated Successfully", "status" : 200}');
     })
 }
 
