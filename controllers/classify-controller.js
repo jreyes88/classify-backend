@@ -20,9 +20,8 @@ router.get('/squad', function(req, res) {
 });
 console.log('Main router loaded.');
 
-
-router.get('/createdomain', function(req, res){
-	res.redirect('./static/joeyteststuff.html')
-});
+router.get('/createDomain', function(req, res) {
+	res.render('./partials/domSubmission');
+})
 
 module.exports = router;

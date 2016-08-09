@@ -5,22 +5,6 @@ var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// function checkAuth(req, res, next) {
-//     // do any checks you want to in here
-//     var post = req.body;
-//     console.log('checkAuth function entered');
-//     console.log(post.userName);
-//     console.log(post.password);
-//     // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
-//     // you can do this however you want with whatever variables you set up
-//     if (post.username === 'john' && post.password === 'password') {
-//         return next();
-//     }
-//     // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
-//     res.send('login-denied');
-// }
-
-
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
@@ -77,8 +61,9 @@ module.exports = function(app, models) {
                     res.end('{"done" : "Updated Successfully", "status" : 200}');
                 }
             })
+
     })
-}
+};
 
 // login route
 // app.post('/login', function(req, res) {
