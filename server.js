@@ -1,8 +1,16 @@
 var express = require('express');
+var app = express();
+
+// /-/-/-/-/-/-/-/-/-/-//-/-/-/-/-/-/-/-/-/-/
+// dependencies
+// /-/-/-/-/-/-/-/-/-/-//-/-/-/-/-/-/-/-/-/-/
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-
-var app = express();
+var exphbs = require('express-handlebars');
+var mutilpart = require('connect-multiparty');
+var uploader = require('express-fileuploader');
+var mysql = require('mysql');
+var OAuth = require('oauth');
 
 // load stylesheets, imgs, etc.
 // app.use(express.static(process.cwd() + '/public'));
@@ -15,8 +23,6 @@ app.use(bodyParser.urlencoded({
 // hack the form methods to be more than GET and POST
 app.use(methodOverride('_method'));
 
-// handlebars
-var exphbs = require('express-handlebars');
 // sets the 'main.handlebars' file to be the default
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
