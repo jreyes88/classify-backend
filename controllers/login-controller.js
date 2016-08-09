@@ -22,23 +22,35 @@ function checkAuth(req, res, next) {
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
-    app.get('/signin', checkAuth, function(req, res) {
-        res.send('login successful');
-    });
+    // app.get('/signin', checkAuth, function(req, res) {
+    //     res.send('login successful');
+    // });
     app.post('/signup', function(req, res) {
-        var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-            if (err) {
-                throw err;
+        models.userID.findOne({where: {username: req.body.userName}})
+        .then(function(duplicateUser){
+            console.log("Duplicate user: " + JSON.stringify(duplicateUser));
+            if (duplicateUser){
+                // window.alert('Please select a different user name!');
+                res.redirect('/signup');
             } else {
-            	var hashedPassword = hash;
-            };
-            models.userID.create({
-                    // name: req.body.name,
-                    username: req.body.userName,
-                    password: hashedPassword
-                })
-        });
-        res.end('{"done" : "Updated Successfully", "status" : 200}');
+                console.log('signing up!');
+                var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        var hashedPassword = hash;
+                    };
+                    console.log(hashedPassword);
+
+                    models.userID.create({
+                            // name: req.body.name,
+                            username: req.body.userName,
+                            password: hashedPassword
+                        })
+                });
+                res.send('Thank you for signing up');
+            }
+        })
     })
 }
 
