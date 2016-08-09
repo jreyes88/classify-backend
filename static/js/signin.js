@@ -17,8 +17,7 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
-
-    });
+    })
 
     $('#loginSubmit').on('click', function() {
         var userName = $('.usernameText').val();
