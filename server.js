@@ -34,6 +34,6 @@ var routes = require('./controllers/classify-controller.js');
 app.use('/', routes);
 
 // set up the Express Server (app) to listen using the 'process.env.PORT' value (aka, the one Heroku assigns, I assume) or PORT 8000
-app.listen(process.env.PORT || 3001, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("server listening on port: " + process.env.PORT);
 });
