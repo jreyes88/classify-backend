@@ -5,10 +5,10 @@ var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
+
     app.post('/signin', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
             .then(function(loginUser) {
@@ -61,6 +61,7 @@ module.exports = function(app, models) {
                     res.end('{"done" : "Updated Successfully", "status" : 200}');
                 }
             })
+
     })
 };
 
