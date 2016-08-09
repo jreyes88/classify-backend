@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Classify</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body class="squadBody">
+    <ul id="" class="side-nav fixed">
+        <li>
+            <div class="userView">
+                <img class="background" src="desk.png">
+                <a href="#!user"><img class="circle" src="https://avatars3.githubusercontent.com/u/17986811?v=3&u=fc232e3efc6df3bcccd931ec13e31bb27beca547&s=140"></a>
+                <a href="#!name"><span class="white-text outline">John Flores</span></a>
+                <a href="#!email"><span class="white-text outline">johnroyflores@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a class="subheader">Building Blocks</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="btn tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Title your page here!" href="#header-modal">Header</a></li>
+        <!-- <li><div class="divider"></div></li> -->
+        <li><a class="btn tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Use this to display events!" href="#calendar-modal">Calendar</a></li>
+        <!--  <li><div class="divider"></div></li> -->
+        <li><a class="btn tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Videos, images, and giphys go here" href="#media-modal">Media</a></li>
+        <!--  <li><div class="divider"></div></li> -->
+        <li><a class="btn tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="...it's text" href="#text-modal">Text</a></li>
+        <!--  <li><div class="divider"></div></li> -->
+        <li><a class="btn tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Display multiple photos, with style!" href="#photo-modal">Photo carousel</a></li>
+    </ul>
+    <div class="container">
+        <!-- Here lies the modal for header input -->
+        <div id="header-modal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4 class="modalHead">Header</h4>
+                <div class="modalContainer">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="Header title goes here..." type="text" class="validate headerText">
+                                <label for="header">Heading</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="Subtitle goes here..." type="text" class="validate subheaderText">
+                                <label for="subheader">Subheading</label>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="headerSubmit">Submit</a>
+            </div>
+        </div>
+    </div>
+    <!-- Here lies the modal for calendar input -->
+    <div id="calendar-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4 class="modalHead">Calendar</h4>
+            <div class="modalContainer">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder='<iframe src="https://calendar.google.com/calendar/embed?src=lisabattle%40gmail.com&ctz=America/Chicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>' class="iframeCalendar" type="text" class="validate">
+                            <label for="iframeCalendar">Enter your iframe embed link here!</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="calendarSubmit">Submit</a>
+        </div>
+    </div>
+    </div>
+    <!-- Here lies the modal for media input -->
+    <div id="media-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4 class="modalHead">YouTube</h4>
+            <div class="modalContainer">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder='<iframe width="560" height="315" src="https://www.youtube.com/embed/HWvzhfI4SuM" frameborder="0" allowfullscreen></iframe>' class="youtubeLink" type="text" class="validate">
+                            <label for="youtubeLink">Enter YouTube embed URL here</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="mediaSubmit">Submit</a>
+        </div>
+    </div>
+    </div>
+ <!-- Here lies the modal for text input -->
+    <div id="text-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4 class="modalHead">Text</h4>
+            <div class="modalContainer">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <textarea id="textarea1" class="materialize-textarea wireframeText"></textarea>
+                            <label for="textarea1">Text goes here...</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="textSubmit">Submit</a>
+            </div>
+        </div>
+    </div>
+    <!-- Here lies the modal for photo carousel input -->
+    <div id="photo-modal" class="modal">
+        <div class="modal-content">
+            <h4 class="modalHead">Photo Carousel</h4>
+            <div class="modalContainer">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="image">Image URL goes here!</label>
+                            <input placeholder="Image URL goes here!" class="image1" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Image URL goes here!" class="image2" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Image URL goes here!" class="image3" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Image URL goes here!" class="image4" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Image URL goes here!" class="image5" type="text" class="validate">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="photoSubmit">Submit</a>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
+    <div class="container">
+        <header>
+            <h2 class="brand-logo classify">Preview</h2>
+        </header>
+
+        <!-- wireframe -->
+        <div id="wireframe">
+        </div>
+    </div>
+
+    <button class = "btn squadSubmit">
+        Submit!
+    </button>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+    $(document).ready(function() {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal({
+            opacity: .0
+        });
+        $('.carousel').carousel();
+        $('#textarea1').trigger('autoresize');
+        $('.carousel').carousel();
+        // Next slide
+        $('.carousel').carousel('next');
+        $('.carousel').carousel('next', 3); // Move next n times.
+        // Previous slide
+        $('.carousel').carousel('prev');
+        $('.carousel').carousel('prev', 4); // Move prev n times.
+        // Set to nth slide
+        $('.carousel').carousel('set', 4);
+    });
+    </script>
+</body>
+
+</html>
