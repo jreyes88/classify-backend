@@ -21,5 +21,5 @@ router.get('/', function(req, res) {
 router.get('/classify', function(req, res) {
     //
 });
-console.log('main router loaded...');
+console.log('Main router loaded.');
 module.exports = router;
