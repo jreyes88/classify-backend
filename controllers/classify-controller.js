@@ -17,6 +17,12 @@ router.get('/classify', function(req, res) {
 
 router.get('/squad', function(req, res) {
 	// res.render('/squad');
-})
+});
 console.log('Main router loaded.');
+
+
+router.get('/createdomain', function(req, res){
+	res.redirect('./static/joeyteststuff.html')
+});
+
 module.exports = router;
