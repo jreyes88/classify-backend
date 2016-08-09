@@ -1,7 +1,7 @@
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-var AuthController = function() {
+var Authenticate = function() {
     this.newUser = function() {
         app.post('/user/create', function(req, res) {
                 console.log(req.body);
@@ -31,5 +31,5 @@ var AuthController = function() {
         });
     }
 }
-console.log('auth controller loaded.');
-module.exports = AuthController;
+console.log('auth package loaded.');
+module.exports = Authenticate;
