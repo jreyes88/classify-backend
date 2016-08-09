@@ -6,8 +6,7 @@ $(document).ready(function() {
                 url: '/signup',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password },
-
+                data: { userName, password }
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);
@@ -18,12 +17,13 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
-    })
-    $('#headerSubmit').on('click', function() {
+
+    });
+
+    $('#loginSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
         console.log(userName + "  " + password);
-
         $.ajax({
                 url: '/signin',
                 type: 'POST',
@@ -39,6 +39,6 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
+
 	})
 })
-

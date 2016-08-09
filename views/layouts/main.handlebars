@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <meta charset="utf-8">
+    <title>Example App</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    {{{style}}}
+</head>
+<body>
+ 
+    {{{body}}}
+ 
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script src="../../static/js/materialize.js"></script>
+ <script src="../../static/js/init.js"></script>
+ <script src="../../static/js/app.js"></script>
+ <script>
+ $(document).ready(function() {
+     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+     $('.modal-trigger').leanModal({
+         opacity: .0
+     });
+     $('.carousel').carousel();
+     $('#textarea1').trigger('autoresize');
+     $('.carousel').carousel();
+     // Next slide
+     $('.carousel').carousel('next');
+     $('.carousel').carousel('next', 3); // Move next n times.
+     // Previous slide
+     $('.carousel').carousel('prev');
+     $('.carousel').carousel('prev', 4); // Move prev n times.
+     // Set to nth slide
+     $('.carousel').carousel('set', 4);
+ });
+ </script>
+ {{{script}}}
+</body>
+</html>
