@@ -1,14 +1,13 @@
 $(document).ready(function() {
 	$('#signUpSubmit').on('click', function(){
-		var body = {
-			userName: $('.newUsernameText').val(),
-			password: $('.newPw').val()
-		}
+		var userName = $('.newUsernameText').val();
+		var password =  $('.newPw').val();
+		console.log(userName + "  " + password);
 		$.ajax({
 			url: '/signup',
 			type: 'POST',
 			dataType: 'JSON',
-			data: {body},
+			data: {userName, password},
 		})
 		.done(function() {
 			console.log("success");

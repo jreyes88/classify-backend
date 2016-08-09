@@ -7,8 +7,8 @@ const saltRounds = 10;
 
 function checkAuth(req, res, next) {
     // do any checks you want to in here
-	var post = req.body;
-	console.log(post);
+    var post = req.body;
+    console.log(post);
     // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
     // you can do this however you want with whatever variables you set up
     if (post.user === 'john' && post.password === 'password') {
@@ -21,21 +21,26 @@ function checkAuth(req, res, next) {
 
 // any route that requires a login authentication
 module.exports = function(app, models) {
-	console.log('login controller loaded.');
+    console.log('login controller loaded.');
     app.get('/signin', checkAuth, function(req, res) {
         res.send('login successful');
     });
     app.post('/signup', function(req, res) {
-                console.log(req.body);
-
-                models.userID.create({
+        var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+            if (err) {
+                throw err;
+            } else {
+                console.log(hash);
+            };
+            models.userID.create({
                     // name: req.body.name,
                     username: req.body.userName,
-                    password: bcrypt.hash(req.body.password, saltRounds, function(err, hash) {})
-                    // email: req.body.email
-                });
-                // res.send('Thank you for signing up');
-            })
+                    password: hashedPassword
+                })
+                // email: req.body.email
+        });
+        res.send('Thank you for signing up');
+    })
 }
 
 // login route
@@ -54,4 +59,3 @@ module.exports = function(app, models) {
 //     delete req.session.user_id;
 //     res.redirect('/login');
 // });
-
