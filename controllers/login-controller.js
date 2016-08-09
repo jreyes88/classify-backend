@@ -26,21 +26,19 @@ module.exports = function(app, models) {
         res.send('login successful');
     });
     app.post('/signup', function(req, res) {
-    	console.log('signing up!');
         var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
             if (err) {
                 throw err;
             } else {
             	var hashedPassword = hash;
             };
-            console.log(hashedPassword);
             models.userID.create({
                     // name: req.body.name,
                     username: req.body.userName,
                     password: hashedPassword
                 })
         });
-        res.send('Thank you for signing up');
+        res.end('{"done" : "Updated Successfully", "status" : 200}');
     })
 }
 
