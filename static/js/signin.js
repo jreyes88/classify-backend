@@ -19,7 +19,7 @@ $(document).ready(function() {
                 console.log("complete");
             });
     })
-    $('#headerSubmit').on('click', function() {
+    $('#loginSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
         console.log(userName + "  " + password);
