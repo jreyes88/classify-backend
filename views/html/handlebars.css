@@ -5,20 +5,22 @@ body {
 	color: #777;
 }
 
+@font-face{
+  font-family: kindergarten;
+  src:url('../../static/fonts/KGMissKindergarten.ttf');
+}
 * {
 	box-sizing: border-box;
 }
 
-/*header*/
+p{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
 
 .header {
-	background: #fff;
-	margin: 0 0 30px;
-	padding-left: 30px;
-	z-index: 99;
-	overflow: auto;
-	border-bottom: 2px solid #ccc;
-	width: 100%;
+	font-family: kindergarten;
+	color:#ffb74d;
 }
 
 .calendar {
