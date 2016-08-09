@@ -6,9 +6,7 @@ $(document).ready(function() {
                 url: '/signup',
                 type: 'POST',
                 dataType: 'JSON',
-
                 data: { userName, password }
-
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);
@@ -22,13 +20,10 @@ $(document).ready(function() {
 
     });
 
-
-    $('#headerSubmit').on('click', function() {
+    $('#loginSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
-        console.log('userName: ' + userName);
-        console.log('password: ' + password);
-
+        console.log(userName + "  " + password);
         $.ajax({
                 url: '/signin',
                 type: 'POST',
@@ -45,5 +40,5 @@ $(document).ready(function() {
                 console.log("complete");
             });
 
-    })
+	})
 })
