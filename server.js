@@ -19,6 +19,8 @@ var OAuth = require('oauth');
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+// adds a static file server.
+app.use(express.static(process.cwd() + '/static'));
 
 // hack the form methods to be more than GET and POST
 app.use(methodOverride('_method'));
@@ -34,6 +36,6 @@ var routes = require('./controllers/classify-controller.js');
 app.use('/', routes);
 
 // set up the Express Server (app) to listen using the 'process.env.PORT' value (aka, the one Heroku assigns, I assume) or PORT 8000
-app.listen(process.env.PORT || 3000, function() {
-    console.log("server listening on port: " + process.env.PORT);
+app.listen(3000, function() {
+    console.log("server listening on port: " + 3000);
 });
