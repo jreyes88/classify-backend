@@ -6,7 +6,8 @@ $(document).ready(function() {
                 url: '/signup',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password }
+                data: { userName, password },
+
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);
@@ -17,28 +18,27 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
-    });
-
-
+    })
     $('#headerSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
-        console.log('userName: ' + userName);
-        console.log('password: ' + password);
+        console.log(userName + "  " + password);
+
         $.ajax({
                 url: '/signin',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password }
+                data: { userName, password },
             })
             .done(function(res) {
-                console.log('success');
+                console.log("success");
             })
             .fail(function() {
-                console.log('error');
+                console.log("error");
             })
             .always(function() {
-                console.log('complete');
+                console.log("complete");
             });
-    });
-});
+	})
+})
+

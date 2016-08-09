@@ -1,6 +1,7 @@
 // var bcrypt = require('bcrypt');
 // const saltRounds = 10;
 
+
 // var authenticate = function(password, hash) {
 //     // NOT BUILT YET ///////////////////////////////////////////
 
