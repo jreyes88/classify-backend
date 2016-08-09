@@ -10,7 +10,6 @@ var exphbs = require('express-handlebars');
 var mutilpart = require('connect-multiparty');
 var uploader = require('express-fileuploader');
 var mysql = require('mysql');
-var OAuth = require('oauth');
 
 // load stylesheets, imgs, etc.
 // app.use(express.static(process.cwd() + '/public'));
@@ -34,6 +33,7 @@ app.set('view engine', 'handlebars');
 // reference the 'burgers_controller.js' file to handle all the routing endpoints
 var routes = require('./controllers/classify-controller.js');
 app.use('/', routes);
+
 
 // set up the Express Server (app) to listen using the 'process.env.PORT' value (aka, the one Heroku assigns, I assume) or PORT 8000
 app.listen(3000, function() {
