@@ -5,15 +5,9 @@ var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// function checkAuth(req, res, next) {
-//     // do any checks you want to in here
-
-
-
 // any route that requires a login authentication
 module.exports = function(app, models) {
     console.log('login controller loaded.');
-
 
     app.post('/signin', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
