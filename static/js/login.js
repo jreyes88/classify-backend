@@ -4,6 +4,21 @@ $(document).ready(function() {
 			userName: $('.newUsernameText').val(),
 			password: $('.newPw').val()
 		}
-		console.log(body);
+		$.ajax({
+			url: '/signup',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {body},
+		})
+		.done(function() {
+			console.log("success");
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
 	})
 })

@@ -2,6 +2,8 @@
 // one way to implement middleware for authenticating users w/ login
 // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
 var Authenticate = require('../app/Authenticate.js');
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 function checkAuth(req, res, next) {
     // do any checks you want to in here
@@ -18,10 +20,22 @@ function checkAuth(req, res, next) {
 
 
 // any route that requires a login authentication
-module.exports = function(app) {
-    app.get('/signup', checkAuth, function(req, res) {
+module.exports = function(app, models) {
+	console.log('login controller loaded.');
+    app.get('/signin', checkAuth, function(req, res) {
         res.send('login successful');
     });
+    app.post('/signup', function(req, res) {
+                console.log(req.body);
+
+                models.userID.create({
+                    // name: req.body.name,
+                    username: req.body.userName,
+                    password: bcrypt.hash(req.body.password, saltRounds, function(err, hash) {})
+                    // email: req.body.email
+                });
+                // res.send('Thank you for signing up');
+            })
 }
 
 // login route
