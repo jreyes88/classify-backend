@@ -1,11 +1,12 @@
 $(document).ready(function() {
 	$('#headerSubmit').on('click', function(){
 		var headerText = $(".headerText").val();
+		var subheaderText = $(".subheaderText").val();
 		$.ajax({
 			url: '/addcontent',
 			type: 'POST',
 			dataType: 'JSON',
-			data: {headerText},
+			data: {headerText, subheaderText}
 		})
 		.done(function(res) {
 			console.log(res.done + " " + res.status);
@@ -16,7 +17,5 @@ $(document).ready(function() {
 		.always(function() {
 			console.log("complete");
 		});
-	$('')	
-
 	})
 })
