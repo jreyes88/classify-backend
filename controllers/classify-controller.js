@@ -3,11 +3,12 @@ var models = require('../models');
 var router = express.Router();
 var loginController = require('./login-controller.js');
 var domainController = require('./domain-controller.js');
-
+var contentController = require('./addContent-controller.js');
 
 
 loginController(router, models);
 domainController(router, models);
+contentController(router, models);
 
 router.get('/', function(req, res) {
     res.redirect('/classify');
