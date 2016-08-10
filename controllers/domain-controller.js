@@ -15,4 +15,13 @@ module.exports = function(app, models) {
 			res.render('admin', hbsObject);
 		})
 	})
+
+	app.get('/calendar', function(req, res){
+		console.log(models.userTemplates);
+		models.userTemplates.findOne({}).then(function(data){
+			var hbsObject = data;
+			console.log('HANDLEBARS!!!! : ' + hbsObject);
+			res.render('admin', hbsObject);
+		})
+	})
 }
