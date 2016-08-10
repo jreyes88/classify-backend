@@ -2,16 +2,40 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    
+      return queryInterface.bulkInsert('userID', [{
+        name: 'Chance',
+        username: 'Chance',
+        password: 'password1',
+        domain: 'loudmouth',
+        email: 'fake@email.com'
+      },{
+         name: 'Lisa',
+        username: 'Lisa',
+        password: 'password2',
+        domain: 'consultant',
+        email: 'fake2@email.com'
+      }, {
+       name: 'Derrick',
+        username: 'Derrick',
+        password: 'password3',
+        domain: 'retiredteacher',
+        email: 'fake3@email.com'},
+        {
+           name: 'Joey',
+        username: 'theHammer',
+        password: 'password4',
+        domain: 'coffeedealer',
+        email: 'fake4@email.com'
+      },{
+         name: 'John',
+        username: 'John',
+        password: 'password5',
+        domain: 'hipaaviolations',
+        email: 'fake5@email.com'
+      }
+      ], {});
+    
   },
 
   down: function (queryInterface, Sequelize) {
@@ -22,5 +46,7 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
+     return queryInterface.bulkDelete('userID', null, {});
+  }
   }
 };

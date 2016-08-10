@@ -1,26 +1,20 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    up: function(queryInterface, Sequelize) {
+        return queryInterface.bulkInsert('userContent', [{
+            name: DataTypes.STRING,
+            data: DataTypes.STRING,
+            dataType: DataTypes.STRING,
+            pageID: DataTypes.INTEGER,
+            pagePosition: DataTypes.INTEGER
+        }], {});
 
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
-  },
+    },
 
-  down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
+    down: function(queryInterface, Sequelize) {
 
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
-    */
-  }
+        return queryInterface.bulkDelete('userContent', null, {});
+
+    }
 };
