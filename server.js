@@ -15,7 +15,7 @@ var mysql = require('mysql');
 
 // Load stylesheets, imgs, etc. from static folder
 // ===============================================
-app.use(express.static(process.cwd() + '/static'));
+app.use(express.static(process.cwd() + '/public'));
 
 // Parse incoming responses into body
 // ===============================================

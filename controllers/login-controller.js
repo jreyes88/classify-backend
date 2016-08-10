@@ -9,6 +9,11 @@ const saltRounds = 10;
 module.exports = function(app, models) {
     console.log('login controller loaded.');
 
+    app.get('/admin', function(req, res) {
+        console.log('GET admin route hit');
+        // console.log("foo: " + JSON.stringify(hbsObject, null, 2));
+    });
+
     app.post('/signin', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
             .then(function(loginUser) {
@@ -20,7 +25,7 @@ module.exports = function(app, models) {
                         console.log(result);
                         if (result === true) {
                             console.log('login successful');
-                            res.redirect('/squad');
+                            res.redirect('/admin');
                         } else {
                             console.log('login failed');
                         }
@@ -28,10 +33,9 @@ module.exports = function(app, models) {
                 } else {
                     console.log('no user found');
                 }
-            })
-    });
-    // res.send('login successful');
-    // checkAuth(data);
+                });
+            // res.end('{"done" : "redirecting after login", "status" : 200}');
+            });
 
     app.post('/signup', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
