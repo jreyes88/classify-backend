@@ -38,11 +38,8 @@ module.exports = function(app, models) {
             .then(function(duplicateUser) {
                 console.log("Duplicate user: " + JSON.stringify(duplicateUser));
                 if (duplicateUser) {
-                    // window.alert('Please select a different user name!');
                     res.redirect('/signup');
                 } else {
-
-
                     console.log('signing up!');
                     var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
                         if (err) {
@@ -50,10 +47,6 @@ module.exports = function(app, models) {
                         } else {
                             var hashedPassword = hash;
                         };
-                        console.log(hashedPassword);
-
-                        console.log(req.body);
-
                         models.userID.create({
                             name: req.body.name,
                             username: req.body.username,
@@ -69,19 +62,3 @@ module.exports = function(app, models) {
     })
 };
 
-// login route
-// app.post('/login', function(req, res) {
-//     var post = req.body;
-//     if (post.user === 'john' && post.password === 'password') {
-//         req.session.user_id = johns_user_id_here;
-//         res.redirect('/my_secret_page');
-//     } else {
-//         res.send('Bad user/pass');
-//     }
-// });
-
-// logout route
-// app.get('/logout', function(req, res) {
-//     delete req.session.user_id;
-//     res.redirect('/login');
-// });
