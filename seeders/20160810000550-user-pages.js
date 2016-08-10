@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-      return queryInterface.bulkInsert('userPage', [{
+      return queryInterface.bulkInsert('userPages', [{
         title: 'Home',
     domain: 'ihatekids',
     template: 'default'
@@ -20,6 +20,6 @@ module.exports = {
 
   down: function (queryInterface, Sequelize) {
    
-      return queryInterface.bulkDelete('userPage', null, {});
+      return queryInterface.bulkDelete('userPages', null, {});
   }
 };
