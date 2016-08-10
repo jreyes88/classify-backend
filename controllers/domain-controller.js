@@ -21,7 +21,7 @@ module.exports = function(app, models) {
 		models.userTemplates.findOne({}).then(function(data){
 			var hbsObject = data;
 			console.log('HANDLEBARS!!!! : ' + hbsObject);
-			res.render('admin', hbsObject);
+			res.render('calendar', hbsObject);
 		})
 	})
 }
