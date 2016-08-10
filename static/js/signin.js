@@ -1,12 +1,20 @@
 $(document).ready(function() {
     $('#signUpSubmit').on('click', function() {
-        var userName = $('.newUsernameText').val();
-        var password = $('.newPw').val();
+        var name = $('#signup-nameText').val();
+        console.log("name: " + name);
+        var username = $('#signup-usernameText').val();
+        console.log("username: " + username);
+        var domain = $('#signup-domainText').val();
+        console.log("domain: " + domain);
+        var email = $('#signup-emailText').val();
+        console.log("email: " + email);
+        var password = $('#signup-pw').val();
+        console.log("password: " + password);
         $.ajax({
                 url: '/signup',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password }
+                data: { name, username, domain, email, password }
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);
