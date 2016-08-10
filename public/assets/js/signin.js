@@ -30,15 +30,19 @@ $(document).ready(function() {
     $('#loginSubmit').on('click', function() {
         var userName = $('.usernameText').val();
         var password = $('.pw').val();
-        console.log(userName + "  " + password);
         $.ajax({
                 url: '/signin',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { userName, password },
+                data: { userName, password }
+                // success: function(data, textStatus, jqXHR) {
+                //     console.log(data);
+                //     // if (typeof data.redirect == 'string') {
+                //     //     window.location.replace(window.location.protocol + "//" + window.location.host + data.redirect);
+                //     }
             })
             .done(function(res) {
-                console.log("success");
+                console.log(res.done + " with status " + res.status);
             })
             .fail(function() {
                 console.log("error");

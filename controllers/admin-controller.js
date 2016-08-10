@@ -1,47 +1,21 @@
 // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
 // one way to implement middleware for authenticating users w/ login
 // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
-var authenticate = require('../app/Authenticate.js');
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
 
 // any route that requires a login authentication
 module.exports = function(app, models) {
-    console.log('login controller loaded.');
-
-    app.get('/admin', function(req, res) {
-        console.log('GET admin route hit');
-        // console.log("foo: " + JSON.stringify(hbsObject, null, 2));
-    });
+    console.log('admin controller loaded.');
 
     app.post('/signin', function(req, res) {
-        models.userID.findOne({ where: { username: req.body.userName } })
-            .then(function(loginUser) {
-                console.log(JSON.stringify(loginUser, null, 2));
-                if (loginUser !== null) {
-                    // var auth = authenticate(req.body.password, loginUser.password);
-                    // console.log('auth is: ' + auth);
-                    bcrypt.compare(req.body.password, loginUser.password, function(err, result) {
-                        console.log(result);
-                        if (result === true) {
-                            console.log('login successful');
-                            res.redirect('/admin');
-                        } else {
-                            console.log('login failed');
-                        }
-                    });
-                } else {
-                    console.log('no user found');
-                }
-                });
-            // res.end('{"done" : "redirecting after login", "status" : 200}');
-            });
+
+    });
 
     app.post('/signup', function(req, res) {
         models.userID.findOne({ where: { username: req.body.userName } })
             .then(function(duplicateUser) {
                 console.log("Duplicate user: " + JSON.stringify(duplicateUser));
                 if (duplicateUser) {
+                    // window.alert('Please select a different user name!');
                     res.redirect('/signup');
                 } else {
                     console.log('signing up!');
@@ -51,6 +25,10 @@ module.exports = function(app, models) {
                         } else {
                             var hashedPassword = hash;
                         };
+                        console.log(hashedPassword);
+
+                        console.log(req.body);
+
                         models.userID.create({
                             name: req.body.name,
                             username: req.body.username,
@@ -65,4 +43,3 @@ module.exports = function(app, models) {
 
     })
 };
-

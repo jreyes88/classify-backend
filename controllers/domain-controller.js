@@ -1,4 +1,5 @@
 module.exports = function(app, models) {
+
     console.log('domain controller loaded.');
     app.post('/domainSubmit', function(req, res) {
             models.userDomain.create({
@@ -22,3 +23,4 @@ module.exports = function(app, models) {
     //     })
     // })
 }
+
