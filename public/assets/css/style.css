@@ -119,7 +119,10 @@ li{
 
 /*header*/
 .squadBody {
-  margin-left: 31vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-right: 5%;
   width: 60vw;
 }
 
@@ -151,4 +154,13 @@ iframe {
   width: 40vw;
   height: 25vw;
   margin: 0 auto;
+}
+
+#loginSubmit, #signupSubmit {
+  position: relative;
+  left: 70%;
+}
+
+form {
+  overflow: visible;
 }
