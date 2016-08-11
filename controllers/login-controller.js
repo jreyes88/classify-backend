@@ -26,7 +26,6 @@ module.exports = function(app, models) {
     app.post('/signin', function(req, res, cb) {
         models.userID.findOne({ where: { username: req.body.username } })
             .then(function(loginUser) {
-                console.log(loginUser.dataValues);
                 if (loginUser !== null) {
                     req.session.user = loginUser.dataValues.username;
                     bcrypt.compare(req.body.password, loginUser.dataValues.password, function(err, result) {
