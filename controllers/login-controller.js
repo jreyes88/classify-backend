@@ -31,10 +31,11 @@ module.exports = function(app, models) {
                     });
                 } else {
                     console.log('no user found');
-                    return res.status(404).send();
+                    res.status(404).send();
+                    res.redirect('/');
                 }
-                });
             });
+    });
 
     app.post('/signup', function(req, res) {
         models.userID.findOne({ where: { username: req.body.username } })

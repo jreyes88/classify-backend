@@ -1,5 +1,5 @@
 module.exports = function(app, models) {
-	app.get('/:username', function(req, res) {
+	app.post('/:username', function(req, res) {
 
 		var paramsUser = req.params.username;
 		console.log("params user ==== " + JSON.stringify(paramsUser, null, 2));
