@@ -8,7 +8,7 @@ module.exports = function(app, models) {
 		models.userID.findOne({ where: { username: paramsUser}})
 		.then(function(res){
 			// activeUser = res;
-			console.log("Test Stuff ===========" + JSON.stringify(res));
+			console.log("Test Stuff =========== " + JSON.stringify(res));
 		})
 		// models.userContent.create({
 
