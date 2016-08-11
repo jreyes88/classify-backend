@@ -12,19 +12,27 @@ module.exports = function(app, models) {
     app.get('/admin', function(req, res) {
         console.log('GET admin route hit');
         // console.log("foo: " + JSON.stringify(hbsObject, null, 2));
+        res.render('admin');
     });
 
     app.post('/signin', function(req, res) {
-        models.userID.findOne({ where: { username: req.body.userName } })
+        // console.log(req.body.username);
+        models.userID.findOne({ where: { username: req.body.username } })
             .then(function(loginUser) {
-                console.log(JSON.stringify(loginUser, null, 2));
+                console.log(loginUser.dataValues);
                 if (loginUser !== null) {
                     // var auth = authenticate(req.body.password, loginUser.password);
                     // console.log('auth is: ' + auth);
-                    bcrypt.compare(req.body.password, loginUser.password, function(err, result) {
+                    bcrypt.compare(req.body.password, loginUser.dataValues.password, function(err, result) {
                         console.log(result);
                         if (result === true) {
                             console.log('login successful');
+
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
+                            // express session
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
+
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
                             res.redirect('/admin');
                         } else {
                             console.log('login failed');
@@ -38,7 +46,7 @@ module.exports = function(app, models) {
             });
 
     app.post('/signup', function(req, res) {
-        models.userID.findOne({ where: { username: req.body.userName } })
+        models.userID.findOne({ where: { username: req.body.username } })
             .then(function(duplicateUser) {
                 console.log("Duplicate user: " + JSON.stringify(duplicateUser));
                 if (duplicateUser) {
@@ -48,7 +56,7 @@ module.exports = function(app, models) {
 
 
                     console.log('signing up!');
-                    var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+                    var hashedPassword = bcrypt.hash(req.body.signupPw, saltRounds, function(err, hash) {
                         if (err) {
                             throw err;
                         } else {
@@ -59,14 +67,14 @@ module.exports = function(app, models) {
                         console.log(req.body);
 
                         models.userID.create({
-                            name: req.body.name,
-                            username: req.body.username,
+                            name: req.body.signupName,
+                            username: req.body.signupUsername,
                             password: hashedPassword,
-                            domain: req.body.domain,
-                            email: req.body.email
+                            domain: req.body.signupDomain,
+                            email: req.body.signupEmail
                         })
                     });
-                    res.end('{"done" : "Updated Successfully", "status" : 200}');
+                    // res.end('{"done" : "Updated Successfully", "status" : 200}');
                 }
             })
 
