@@ -1,25 +1,14 @@
 $(document).ready(function() {
 	$('#contentSubmit').on('click', function(){
-		var data = {
-			"pageName": localStorage.getItem("headerName"),
-			"username": sessionStorage.username,
-			"content": [
-				{
-					"headerTitle": localStorage.getItem("headerName"),
-					"headersubTitle": localStorage.getItem("headerSubData")
-				},
-				{
-					"textTitle": localStorage.getItem("headerName"),
-					"textContent": localStorage.getItem("textData")
-				}
-			]
-		}
-		// var subheaderText = localStorage.getItem("headerSubData");
+		var headerText = localStorage.getItem("headerName"); 
+		var subheaderText = localStorage.getItem("headerSubData");
+		console.log(headerText);
+		console.log(subheaderText);
 		$.ajax({
-			url: '/addcontent',
+			url: '/',
 			type: 'POST',
 			dataType: 'JSON',
-			data: data
+			data: {headerText, subheaderText}
 		})
 		.done(function(res) {
 			console.log(res.done + " " + res.status);
