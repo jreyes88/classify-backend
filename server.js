@@ -3,13 +3,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 
 // (is this a typo? should it be multipart?)
 var mutilpart = require('connect-multiparty');
 // ()
-
 var uploader = require('express-fileuploader');
 var mysql = require('mysql');
 
@@ -22,6 +22,10 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+// Set up sessions
+// ===============================================
+app.use(session({secret: 'asdfjkl1234', resave: false, saveUnitialized: true}));
 
 // Method Override allows for deleting/updating info from the db
 // ===============================================

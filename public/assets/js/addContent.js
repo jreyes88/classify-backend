@@ -1,9 +1,11 @@
 $(document).ready(function() {
-	$('#headerSubmit').on('click', function(){
-		var headerText = $(".headerText").val();
-		var subheaderText = $(".subheaderText").val();
+	$('#contentSubmit').on('click', function(){
+		var headerText = localStorage.getItem("headerName"); 
+		var subheaderText = localStorage.getItem("headerSubData");
+		console.log(headerText);
+		console.log(subheaderText);
 		$.ajax({
-			url: '/addcontent',
+			url: '/',
 			type: 'POST',
 			dataType: 'JSON',
 			data: {headerText, subheaderText}
