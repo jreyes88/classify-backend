@@ -152,3 +152,12 @@ iframe {
   height: 25vw;
   margin: 0 auto;
 }
+
+#loginSubmit, #signupSubmit {
+  position: relative;
+  left: 70%;
+}
+
+form {
+  overflow: visible;
+}
