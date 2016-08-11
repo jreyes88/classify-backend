@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 
@@ -15,13 +16,15 @@ var mysql = require('mysql');
 
 // Load stylesheets, imgs, etc. from static folder
 // ===============================================
-app.use(express.static(process.cwd() + '/static'));
+app.use(express.static(process.cwd() + '/public'));
 
 // Parse incoming responses into body
 // ===============================================
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+app.use(session({secret: 'asdfjkl1234', resave: false, saveUnitialized: true}));
 
 // Method Override allows for deleting/updating info from the db
 // ===============================================

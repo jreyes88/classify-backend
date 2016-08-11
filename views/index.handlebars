@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>Classify</title>
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>
-
-<body>
-    <nav class="light-blue lighten-1" role="navigation">
+<nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo classify">Classify</a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#login-modal" class="modal-trigger">Sign in!</a></li>
@@ -45,23 +31,22 @@
                 <div class="modal-content">
                     <h4 class="modalHead">Log in</h4>
                     <div class="modalContainer">
-                        <form class="col s12">
+                        <form class="col s12" method="POST" action="/signin">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="...." type="text" class="validate usernameText">
+                                    <input placeholder="...." type="text" class="validate usernameText" name="username">
                                     <label for="username">Username</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="...." type="password" class="validate pw">
+                                    <input placeholder="...." type="password" class="validate pw" name="password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
+                            <button class="modal-action modal-close waves-effect waves-green btn-flat" id="loginSubmit" type="submit">Sign In</button>
+                        </form>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="loginSubmit">Submit</a>
                 </div>
             </div>
             <!-- Here lies the sign-up modal -->
@@ -69,42 +54,44 @@
                 <div class="modal-content">
                     <h4 class="modalHead">Sign up</h4>
                     <div class="modalContainer">
-                        <form class="col s12">
+                        <form method="POST" action="/signup" class="col s12">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="John Doe" type="text" class="validate nameText" id="signup-nameText">
+                                    <input placeholder="John Doe" type="text" class="validate nameText" id="signup-nameText" name="signupName">
                                     <label for="name">Name</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="johndoe" type="text" class="validate usernameText" id="signup-usernameText">
+                                    <input placeholder="johndoe" type="text" class="validate usernameText" id="signup-usernameText" name="signupUsername">
                                     <label for="username">Username</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="english1302" type="text" class="validate domainText" id="signup-domainText">
+                                    <input placeholder="english1302" type="text" class="validate domainText" id="signup-domainText" name="signupDomain">
                                     <label for="domain">Domain</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="johndoe@gmail.com" type="text" class="validate emailText" id="signup-emailText">
+                                    <input placeholder="johndoe@gmail.com" type="text" class="validate emailText" id="signup-emailText" name="signupEmail">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input placeholder="password" type="password" class="validate pw" id="signup-pw">
+                                    <input placeholder="password" type="password" class="validate pw" id="signup-pw" name="signupPw">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
+                                <button class="modal-action modal-close waves-effect waves-green btn-flat" id="signupSubmit" type="submit">Sign Up</button>
+                        </form>
                     </div>
                 </div>
-                <div class="modal-footer">
+                {{!-- <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="signUpSubmit">Sign Up!</a>
-                </div>
+                </div> --}}
             </div>
             <!--   Icon Section   -->
             <div class="row">
@@ -169,18 +156,27 @@
             </div>
         </div>
     </footer>
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/signin.js"></script>
+
+     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/materialize.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/signin.js"></script>
     <script>
     $(document).ready(function() {
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $('.modal-trigger').leanModal({
             opacity: .0
         });
+        $('.carousel').carousel();
+        $('#textarea1').trigger('autoresize');
+        $('.carousel').carousel();
+        // Next slide
+        $('.carousel').carousel('next');
+        $('.carousel').carousel('next', 3); // Move next n times.
+        // Previous slide
+        $('.carousel').carousel('prev');
+        $('.carousel').carousel('prev', 4); // Move prev n times.
+        // Set to nth slide
+        $('.carousel').carousel('set', 4);
     });
     </script>
-</body>
-
-</html>

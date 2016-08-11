@@ -9,32 +9,53 @@ const saltRounds = 10;
 module.exports = function(app, models) {
     console.log('login controller loaded.');
 
+    app.get('/admin', function(req, res) {
+        console.log('GET admin route hit');
+        console.log("foo: " + req.session.user);
+        if (!req.session.user) {
+            return res.status(401).send();
+        } else {
+            // req.session.user = 
+            res.render('admin');
+            // return res.status(200).send("welcome to logged in page");
+        }
+        // console.log("foo: " + JSON.stringify(hbsObject, null, 2));
+    });
+
     app.post('/signin', function(req, res) {
-        models.userID.findOne({ where: { username: req.body.userName } })
+        // console.log(req.body.username);
+        models.userID.findOne({ where: { username: req.body.username } })
             .then(function(loginUser) {
-                console.log(JSON.stringify(loginUser, null, 2));
+                console.log(loginUser.dataValues);
                 if (loginUser !== null) {
+                    req.session.user = loginUser.dataValues.username;
                     // var auth = authenticate(req.body.password, loginUser.password);
                     // console.log('auth is: ' + auth);
-                    bcrypt.compare(req.body.password, loginUser.password, function(err, result) {
+                    bcrypt.compare(req.body.password, loginUser.dataValues.password, function(err, result) {
                         console.log(result);
                         if (result === true) {
                             console.log('login successful');
-                            res.redirect('/squad');
+
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
+                            // express session
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
+
+                            // /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
+                            res.redirect('/admin');
                         } else {
                             console.log('login failed');
                         }
                     });
                 } else {
                     console.log('no user found');
+                    return res.status(404).send();
                 }
-            })
-    });
-    // res.send('login successful');
-    // checkAuth(data);
+                });
+            // res.end('{"done" : "redirecting after login", "status" : 200}');
+            });
 
     app.post('/signup', function(req, res) {
-        models.userID.findOne({ where: { username: req.body.userName } })
+        models.userID.findOne({ where: { username: req.body.username } })
             .then(function(duplicateUser) {
                 console.log("Duplicate user: " + JSON.stringify(duplicateUser));
                 if (duplicateUser) {
@@ -44,7 +65,7 @@ module.exports = function(app, models) {
 
 
                     console.log('signing up!');
-                    var hashedPassword = bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+                    var hashedPassword = bcrypt.hash(req.body.signupPw, saltRounds, function(err, hash) {
                         if (err) {
                             throw err;
                         } else {
@@ -52,13 +73,17 @@ module.exports = function(app, models) {
                         };
                         console.log(hashedPassword);
 
+                        console.log(req.body);
+
                         models.userID.create({
-                            // name: req.body.name,
-                            username: req.body.userName,
-                            password: hashedPassword
+                            name: req.body.signupName,
+                            username: req.body.signupUsername,
+                            password: hashedPassword,
+                            domain: req.body.signupDomain,
+                            email: req.body.signupEmail
                         })
                     });
-                    res.end('{"done" : "Updated Successfully", "status" : 200}');
+                    // res.end('{"done" : "Updated Successfully", "status" : 200}');
                 }
             })
 
