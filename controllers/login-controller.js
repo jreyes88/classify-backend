@@ -1,4 +1,4 @@
-var authenticate = require('../app/Authenticate.js');
+// var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -7,15 +7,23 @@ module.exports = function(app, models) {
 
     app.get('/admin', function(req, res) {
         console.log('GET admin route hit');
-        console.log("foo: " + req.session.user);
+        console.log("session user: " + req.session.user);
         if (!req.session.user) {
             return res.status(401).send();
         } else {
-            res.render('admin');
+            // res.render('admin');
+            models.userID.findOne({ where: { username: req.session.user}})
+            .then(function(sessionUser) {
+                var hbsObj = {
+                    username: sessionUser.username,
+                    email: sessionUser.email
+                }
+                res.render('admin', hbsObj);
+            })
         }
     });
 
-    app.post('/signin', function(req, res) {
+    app.post('/signin', function(req, res, cb) {
         models.userID.findOne({ where: { username: req.body.username } })
             .then(function(loginUser) {
                 console.log(loginUser.dataValues);
@@ -32,7 +40,8 @@ module.exports = function(app, models) {
                     });
                 } else {
                     console.log('no user found');
-                    return res.status(404).send();
+                    res.status(404).send();
+                    res.redirect('/');
                 }
                 });
             });
@@ -44,8 +53,6 @@ module.exports = function(app, models) {
                 if (duplicateUser) {
                     res.redirect('/signup');
                 } else {
-
-
                     console.log('signing up!');
                     var hashedPassword = bcrypt.hash(req.body.signupPw, saltRounds, function(err, hash) {
                         if (err) {
@@ -55,8 +62,6 @@ module.exports = function(app, models) {
                         };
                         console.log(hashedPassword);
 
-                        console.log(req.body);
-
                         models.userID.create({
                             name: req.body.signupName,
                             username: req.body.signupUsername,
@@ -64,10 +69,13 @@ module.exports = function(app, models) {
                             domain: req.body.signupDomain,
                             email: req.body.signupEmail
                         })
+                        // res.redirect('/admin');
                     });
                 }
             })
-
+            req.session.user = req.body.signupName;
+            console.log("foo " + req.session.user);
+            res.redirect('/admin');
     })
 };
 
