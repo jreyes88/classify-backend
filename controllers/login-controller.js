@@ -11,8 +11,15 @@ module.exports = function(app, models) {
 
     app.get('/admin', function(req, res) {
         console.log('GET admin route hit');
+        console.log("foo: " + req.session.user);
+        if (!req.session.user) {
+            return res.status(401).send();
+        } else {
+            // req.session.user = 
+            res.render('admin');
+            // return res.status(200).send("welcome to logged in page");
+        }
         // console.log("foo: " + JSON.stringify(hbsObject, null, 2));
-        res.render('admin');
     });
 
     app.post('/signin', function(req, res) {
@@ -21,6 +28,7 @@ module.exports = function(app, models) {
             .then(function(loginUser) {
                 console.log(loginUser.dataValues);
                 if (loginUser !== null) {
+                    req.session.user = loginUser.dataValues.username;
                     // var auth = authenticate(req.body.password, loginUser.password);
                     // console.log('auth is: ' + auth);
                     bcrypt.compare(req.body.password, loginUser.dataValues.password, function(err, result) {
@@ -40,6 +48,7 @@ module.exports = function(app, models) {
                     });
                 } else {
                     console.log('no user found');
+                    return res.status(404).send();
                 }
                 });
             // res.end('{"done" : "redirecting after login", "status" : 200}');
