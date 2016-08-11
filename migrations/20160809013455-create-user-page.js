@@ -11,6 +11,9 @@ module.exports = {
             title: {
                 type: Sequelize.STRING
             },
+            userID: {
+                type: Sequelize.INTEGER
+            },
             domain: {
                 type: Sequelize.STRING
             },
