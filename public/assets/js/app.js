@@ -1,6 +1,11 @@
 localStorage.clear();
 var clickCount = 0;
 
+$("#loginSubmit").click(function(){
+  var username = $(".usernameText").val();
+  sessionStorage.setItem("username", username);
+});
+
 $( "#headerSubmit" ).click(function() {
   var headerText = $(".headerText").val();
   var subheaderText = $(".subheaderText").val();
