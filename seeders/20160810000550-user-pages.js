@@ -3,15 +3,18 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
       return queryInterface.bulkInsert('userPages', [{
-        title: 'Home',
+    title: 'Home',
+    userID: 1,
     domain: 'ihatekids',
     template: 'default'
       }, {
-        title: 'First Page',
+    title: 'First Page',
+    userID: 2,
     domain: 'ilovekids',
     template: 'default'
   }, {
     title: 'I heart Rob',
+    userID: 3,
     domain: 'hearthrob',
     template: 'default'
   }], {});
