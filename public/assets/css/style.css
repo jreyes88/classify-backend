@@ -119,7 +119,10 @@ li{
 
 /*header*/
 .squadBody {
-  margin-left: 31vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-right: 5%;
   width: 60vw;
 }
 
