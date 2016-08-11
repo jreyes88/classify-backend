@@ -42,8 +42,8 @@ module.exports = function(app, models) {
                     res.status(404).send();
                     res.redirect('/');
                 }
-                });
             });
+    });
 
     app.post('/signup', function(req, res) {
         models.userID.findOne({ where: { username: req.body.username } })
@@ -75,3 +75,4 @@ module.exports = function(app, models) {
             res.redirect('/admin');
     })
 };
+
