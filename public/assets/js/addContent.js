@@ -5,7 +5,7 @@ $(document).ready(function() {
 		console.log(headerText);
 		console.log(subheaderText);
 		$.ajax({
-			url: '/addcontent',
+			url: '/',
 			type: 'POST',
 			dataType: 'JSON',
 			data: {headerText, subheaderText}
