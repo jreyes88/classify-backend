@@ -6,8 +6,6 @@ module.exports = function(app, models) {
     console.log('login controller loaded.');
 
     app.get('/admin', function(req, res) {
-        console.log('GET admin route hit');
-        console.log("session user: " + req.session.user);
         if (!req.session.user) {
             return res.status(401).send();
         } else {
@@ -52,7 +50,6 @@ module.exports = function(app, models) {
                 if (duplicateUser) {
                     res.redirect('/signup');
                 } else {
-                    console.log('signing up!');
                     var hashedPassword = bcrypt.hash(req.body.signupPw, saltRounds, function(err, hash) {
                         if (err) {
                             throw err;
@@ -71,7 +68,6 @@ module.exports = function(app, models) {
                 }
             })
             req.session.user = req.body.signupName;
-            console.log("foo " + req.session.user);
             res.redirect('/admin');
     })
 };

@@ -6,14 +6,9 @@
      var domain;
      var pageID;
      var pageName;
-
-
-
-
-
+   
      app.post('/addcontent', function(req, res) {
-         console.log('ITS WORKING RIGHT HERE!');
-         console.log(req.body);
+     			var data = req.body;
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
              domain = res.domain;
@@ -31,8 +26,14 @@
                      userID: userID,
                      title: pageName
                  }
-             }).done(function(res) {
-                 console.log(res.dataValues.id);
+             }).then(function(res) {
+                 pageID = res.id;
+             }).then(function(){
+             	for (var i =0; i < data.content.length; i ++){
+             			models.userContent.create({
+             				
+             			})
+             	}
              })
          })
      });
