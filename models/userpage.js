@@ -8,7 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                userPage.hasOne(models.userID);
                 userPage.hasMany(models.userContent, {
                     onDelete: 'cascade'
                 });
