@@ -8,40 +8,45 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
-         var data = JSON.stringify(req.body);
-         models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
-             userID = res.id;
-             domain = res.domain;
-         }).then(function() {
-             models.userPage.create({
-                 title: req.body.pageName,
-                 userID: userID,
-                 domain: domain,
-                 template: "student"
-             })
+             var data = JSON.stringify(req.body);
              pageName = req.body.pageName;
-         });
-         models.userPage.findOne({
-                 where: {
-                     userID: userID
-                 }
+             models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
+                 userID = res.id;
+                 domain = res.domain;
+             }).then(function() {
+                 models.userPage.create({
+                     title: req.body.pageName,
+                     userID: userID,
+                     domain: domain,
+                     template: "student"
+                 })
+             }).then(function() {
+             	// this fires after the userPage.create. find a way to make it fire synchronously.
+                 models.userPage.findOne({
+                     where: {
+                         userID: userID,
+                         title: pageName
+                     }
+                 })
              }).then(function(res) {
                  console.log(res);
-                 // pageID = res.id;
+                 pageID = res.id;
              })
-             // .then(function() {
-             //     for (var i = 0; i < data.content.length; i++) {
-             //         models.userContent.create({
-             //             name: data.content[i].name,
-             //             data: data[i].data,
-             //             dataType: data.content[i].dataType,
-             //             pageID: pageID,
-             //             pagePosition: data.content[i].pagePosition
-             //         }).then(function(){
-             //         	console.log('check the fucking database');
-             //         })
-             //     }
-             // })
-             // })
-     });
- }
+         })
+         // .then(function() {
+         //     for (var i = 0; i < data.content.length; i++) {
+         //         models.userContent.create({
+         //             name: data.content[i].name,
+         //             data: data[i].data,
+         //             dataType: data.content[i].dataType,
+         //             pageID: pageID,
+         //             pagePosition: data.content[i].pagePosition
+         //         }).then(function(){
+         //         	console.log('check the fucking database');
+         //         })
+         //     }
+         // })
+         // })
+ };
+
+ 
