@@ -33,8 +33,8 @@ $(document).ready(function() {
         $.ajax({
                 url: '/addcontent',
                 type: 'POST',
-                dataType: 'JSON',
-                data: data
+                dataType: 'text',
+                data: JSON.stringify(data)
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);

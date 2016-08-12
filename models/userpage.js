@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 userPage.hasMany(models.userContent, {
-                    onDelete: 'cascade'
+                    onDelete: 'cascade',
+                    foreignKey: 'pageId'
                 });
             }
         }
