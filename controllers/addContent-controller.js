@@ -1,69 +1,52 @@
-userID = require('../models/').userID;
-userPages = require('../models/').userpage;
+ // any route that requires a login authentication
+ module.exports = function(app, models) {
+     console.log('addContent controller loaded.');
 
-// any route that requires a login authentication
-module.exports = function(app, models) {
-    console.log('addContent controller loaded.');
+     var userID;
+     var domain;
+     var pageID;
+     var pageName;
 
-    app.post('/addcontent', function(req, res) {
-    	console.log('add content post hit');
-    	console.log(req.body);
-    	var userID; 
-    	var domain;
-    	var pageID;
-    	var pageName;
-    	models.userID.findOne({ where: { username: req.body.username}})
-		.then(function(res){
-			console.log("Test Stuff =========== " + JSON.stringify(res, null, 2));
-			userID = res.id;
-			domain = res.domain;
-		})
-		.then(function(res) {
-			console.log('userID: ' + userID);
-			models.userPage.create(
-				{
-					title: req.body.pageName,
-					userID: userID,
-					domain: domain,
-					template: "student"
-				}
-			)
-			pageName = req.body.pageName;
-		})
-		.then(function(res) 
-			{
-				models.userPage.findOne(
-					{
-						where:
-							{
-								userID: userID,
-								title: pageName
-							}
-					}
-				)
-				.then(function(res){
-					console.log("===========GOD I HOPE THIS WORKS RES: " + JSON.stringify(res, null, 2));
+     app.post('/addcontent', function(req, res) {
+             var data = JSON.stringify(req.body);
+             pageName = req.body.pageName;
+             models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
+                 userID = res.id;
+                 domain = res.domain;
+             }).then(function() {
+                 models.userPage.create({
+                     title: req.body.pageName,
+                     userID: userID,
+                     domain: domain,
+                     template: "student"
+                 })
+             }).then(function() {
+                // this fires after the userPage.create. find a way to make it fire synchronously.
+                 models.userPage.findOne({
+                     where: {
+                         userID: userID,
+                         title: pageName
+                     }
+                 })
+             }).then(function(res) {
+                 console.log(res);
+                 pageID = res.id;
+             })
+         })
+         // .then(function() {
+         //     for (var i = 0; i < data.content.length; i++) {
+         //         models.userContent.create({
+         //             name: data.content[i].name,
+         //             data: data[i].data,
+         //             dataType: data.content[i].dataType,
+         //             pageID: pageID,
+         //             pagePosition: data.content[i].pagePosition
+         //         }).then(function(){
+         //             console.log('check the fucking database');
+         //         })
+         //     }
+         // })
+         // })
+ };
 
-				})
-			}
-		)
-
-	
-		// models.userContent.create({
-
-		// })
-
-		// models.userPage.create({
-
-		// })
-
-    	// models.userPage.create({
-    	// 	title: req.body.pageName,
-
-    	// })
-   		// models.userContent.create({
-   		// 	name: req.body.headerText,
-   		// 	data: req.body.subheaderText
-   		// })
-    });
-}
+ 
