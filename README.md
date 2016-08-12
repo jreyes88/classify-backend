@@ -31,3 +31,5 @@ Further iterations of Classify will support:
 *mysql
 *sequelize
 *sequelize-cli
+
+werwefwefwef
