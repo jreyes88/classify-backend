@@ -1,10 +1,13 @@
-var express = require('express');
-var models = require('../models');
-var router = express.Router();
-var loginController = require('./login-controller.js');
-var contentController = require('./addContent-controller.js');
-var adminController = require('./admin-controller.js');
-var userGeneratedPageController = require('./userGeneratedPage-controller.js');
+var express = require('express'),
+models = require('../models'),
+router = express.Router(),
+loginController = require('./login-controller.js'),
+contentController = require('./addContent-controller.js'),
+adminController = require('./admin-controller.js'),
+userGeneratedPageControler = require('./userGeneratedPage-controller.js'),
+userIDController = require('./userID-controller.js'),
+userPageController = require('./userPage-controller.js'),
+userContentController = require('./userContent-controller.js');
 
 loginController(router, models);
 contentController(router, models);
