@@ -8,21 +8,22 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
-         var data = req.body;
-         pageName = req.body.pageName;
-         models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
-             userID = res.id;
-             domain = res.domain;
-         }).then(function() {
-             models.userPage.create({
-                 title: req.body.pageName,
-                 userId: userID,
-                 domain: domain,
-                 template: "student"
-             }).then(function(res) {
-                 pageID = res.dataValues.id;
-             }).then(function() {
-                console.log(data);
+        console.log(req.body);
+         // var data = req.body;
+         // pageName = req.body.pageName;
+         // models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
+         //     userID = res.dataValues.id;
+         //     domain = res.dataValues.domain;
+         // }).then(function() {
+         //     models.userPage.create({
+         //         title: req.body.pageName,
+         //         userId: userID,
+         //         domain: domain,
+         //         template: "student"
+         //     }).then(function(res) {
+         //         pageID = res.dataValues.id;
+         //     }).then(function() {
+         //        console.log(data);
                  // for (var i = 0; i < data.content.length; i++) {
                  //     models.userContent.create({
                  //         name: data.content[i].name,
@@ -34,8 +35,8 @@
                  //         console.log('check the fucking database');
                  //     })
                  // }
-             })
-         })
+         //     })
+         // })
      })
 
  };
