@@ -1,4 +1,4 @@
-userContent = require('..models/').usercontent;
+userContent = require('../models/').usercontent;
 
 
 module.exports = {

@@ -17,7 +17,7 @@ module.exports = {
             dataType: {
                 type: Sequelize.STRING
             },
-            pageID: {
+            pageId: {
                 type: Sequelize.INTEGER
             },
             pagePosition:{

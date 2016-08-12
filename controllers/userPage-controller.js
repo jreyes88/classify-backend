@@ -1,6 +1,6 @@
 userID = require('../models/').userID;
 userPages = require('../models/').userpage;
-userContent = require('..models/').usercontent;
+userContent = require('../models/').usercontent;
 
 
 module.exports = {

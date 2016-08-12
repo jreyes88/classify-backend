@@ -5,7 +5,10 @@ models = require('../models'),
  contentController = require('./addContent-controller.js'),
  adminController = require('./admin-controller.js'),
  userGeneratedPageControler = require('./userGeneratedPage-controller.js'),
- userIDController = require('./userID-controller.js');
+ userIDController = require('./userID-controller.js'),
+  userPageController = require('./userPage-controller.js'),
+ userContentController = require('./userContent-controller.js');
+
 
 
 loginController(router, models);

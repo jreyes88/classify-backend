@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     data: DataTypes.STRING,
     dataType: DataTypes.STRING,
-    pageID: DataTypes.INTEGER,
+    pageId: DataTypes.INTEGER,
     pagePosition: DataTypes.INTEGER
   }, {
     classMethods: {
