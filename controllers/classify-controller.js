@@ -2,12 +2,12 @@ var express = require('express');
 var models = require('../models');
 var router = express.Router();
 var loginController = require('./login-controller.js');
-var addContentController = require('./addContent-controller.js');
+var contentController = require('./addContent-controller.js');
 var adminController = require('./admin-controller.js');
 var userGeneratedPageController = require('./userGeneratedPage-controller.js');
 
 loginController(router, models);
-addContentController(router, models);
+contentController(router, models);
 adminController(router, models);
 userGeneratedPageController(router, models);
 
