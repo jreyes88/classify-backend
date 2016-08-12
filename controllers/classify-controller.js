@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> joeywork
 var express = require('express'),
 models = require('../models'),
 router = express.Router(),
