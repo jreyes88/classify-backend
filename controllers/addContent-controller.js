@@ -8,8 +8,7 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
-
-        console.log(req.body);
+         console.log(req.body.headerData);
          var data = req.body;
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
@@ -23,17 +22,35 @@
              }).then(function(res) {
                  pageID = res.dataValues.id;
              }).then(function() {
-                 // for (var i = 0; i < data.content.length; i++) {
-                 //     models.userContent.create({
-                 //         name: data.content[i].name,
-                 //         data: data[i].data,
-                 //         dataType: data.content[i].dataType,
-                 //         pageId: pageID,
-                 //         pagePosition: data.content[i].pagePosition
-                 //     }).then(function() {
-                 //         console.log('check the fucking database');
-                 //     })
-                 // }
+                 models.userContent.create({
+                     name: data.headerName,
+                     data: data.headerData,
+                     dataType: data.headerDataType,
+                     pageId: pageID,
+                     pagePosition: data.headerPagePosition
+                 });
+                 models.userContent.create({
+                     name: data.calendarName,
+                     data: data.calendarData,
+                     dataType: data.calendarDataType,
+                     pageId: pageID,
+                     pagePosition: data.calendarPagePosition
+                 });
+                 models.userContent.create({
+                     name: data.youTubeName,
+                     data: data.youTubeData,
+                     dataType: data.youTubeDataType,
+                     pageId: pageID,
+                     pagePosition: data.youTubePagePosition,
+                 });
+                 models.userContent.create({
+                     name: data.textName,
+                     data: data.textData,
+                     dataType: data.textDataType,
+                     pageId: pageID,
+                     pagePosition: data.textPagePosition
+                 });
+                 console.log('check the mother fucking database');
              })
          })
      })

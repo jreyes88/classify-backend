@@ -19,15 +19,15 @@ app.use(express.static(process.cwd() + '/public'));
 
 // Parse incoming responses into body
 // ===============================================
-app.use( bodyParser.json());  
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-	extended: false
+    extended: false
 }));
 
 
 // Set up sessions
 // ===============================================
-app.use(session({secret: 'asdfjkl1234', resave: false, saveUnitialized: true}));
+app.use(session({ secret: 'asdfjkl1234', resave: false, saveUnitialized: true }));
 
 // Method Override allows for deleting/updating info from the db
 // ===============================================
@@ -36,7 +36,7 @@ app.use(methodOverride('_method'));
 // sets the 'main.handlebars' file to be the default
 // ===============================================
 app.engine('handlebars', exphbs({
-	defaultLayout: 'main'
+    defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
