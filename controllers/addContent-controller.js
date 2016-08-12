@@ -1,5 +1,5 @@
-// any route that requires a login authentication
-module.exports = function(app, models) {
+ // any route that requires a login authentication
+ module.exports = function(app, models) {
      console.log('addContent controller loaded.');
 
      var userID;
