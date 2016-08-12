@@ -3,9 +3,9 @@ module.exports = function(app, models)
 		app.get('/:username', function(req, res)
 			{
 				var paramsUser = req.params.username;
-				console.log("params user ==== " + JSON.stringify(paramsUser, null, 2));
+				// console.log("params user ==== " + JSON.stringify(paramsUser, null, 2));
 				// var activeUser;
-				console.log(req.params);
+				// console.log(req.params);
 				models.userID.findOne(
 					{
 						where:
@@ -16,7 +16,7 @@ module.exports = function(app, models)
 				).then(function(res)
 					{
 						// activeUser = res;
-						console.log("Test Stuff =========== " + JSON.stringify(res));
+						// console.log("Test Stuff =========== " + JSON.stringify(res));
 					}
 				)
 		// models.userContent.create({

@@ -2,14 +2,14 @@ var express = require('express');
 var models = require('../models');
 var router = express.Router();
 var loginController = require('./login-controller.js');
-var contentController = require('./addContent-controller.js');
+var addContentController = require('./addContent-controller.js');
 var adminController = require('./admin-controller.js');
-var userGeneratedPageControler = require('./userGeneratedPage-controller.js');
+var userGeneratedPageController = require('./userGeneratedPage-controller.js');
 
 loginController(router, models);
-contentController(router, models);
+addContentController(router, models);
 adminController(router, models);
-userGeneratedPageControler(router, models);
+userGeneratedPageController(router, models);
 
 // router.get('/', function(req, res) {
 //     res.redirect('/classify');
