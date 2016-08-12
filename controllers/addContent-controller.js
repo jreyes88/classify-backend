@@ -7,10 +7,6 @@ module.exports = function(app, models) {
      var pageID;
      var pageName;
 
-
-
-
-
      app.post('/addcontent', function(req, res) {
          console.log('ITS WORKING RIGHT HERE!');
          console.log(req.body);
