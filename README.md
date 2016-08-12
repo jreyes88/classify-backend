@@ -2,10 +2,12 @@
 Classify is a Content Management System built for ease of use with teachers in mind. Instructors need a painless and clutter-free way to electronically distribute course resources to their students, and Classify aims to do just that.
 <br>
 Currently supported media types include:
-*Text
-*URLs
-*YouTube Videos
-*Google Calendars
+<ul>
+	<li>Text</li>
+	<li>URLs</li>
+	<li>YouTube Videos</li>
+	<li>Google Calendars</li>
+</ul>
 <br>
 Further iterations of Classify will support:
 *File upload
