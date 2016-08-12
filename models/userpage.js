@@ -8,9 +8,11 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                userPage.hasMany(models.userContent, {
-                    onDelete: 'cascade'
-                });
+                // userPage.hasOne(models.userID);
+                // userPage.hasMany(models.userContent, {
+                //     onDelete: 'cascade'
+                // });
+                // userPage.belongsTo(userID, {foreignKey: 'fk_id', tarketKey: 'domain'});
             }
         }
     });
