@@ -1,3 +1,6 @@
+userID = require('../models/').userID;
+userPages = require('../models/').userpage;
+
 // any route that requires a login authentication
  module.exports = function(app, models) {
      console.log('addContent controller loaded.');
