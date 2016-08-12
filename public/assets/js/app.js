@@ -18,7 +18,7 @@ $( "#headerSubmit" ).click(function() {
   //this is the subheader
   localStorage.setItem("headerSubData", subheaderText);
   localStorage.setItem("headerPagePosition", clickCount);
-  localStorage.setItem("headerDataType", "string");
+  localStorage.setItem("headerDataType", "header");
     // Don't refresh the page!
   return false;
 });
