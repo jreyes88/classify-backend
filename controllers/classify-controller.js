@@ -4,7 +4,7 @@ models = require('../models'),
  loginController = require('./login-controller.js'),
  contentController = require('./addContent-controller.js'),
  adminController = require('./admin-controller.js'),
- userGeneratedPageControler = require('./userGeneratedPage-controller.js'),
+ userGeneratedPageController = require('./userGeneratedPage-controller.js'),
  userIDController = require('./userID-controller.js'),
   userPageController = require('./userPage-controller.js'),
  userContentController = require('./userContent-controller.js');
@@ -14,7 +14,7 @@ models = require('../models'),
 loginController(router, models);
 contentController(router, models);
 adminController(router, models);
-userGeneratedPageControler(router, models);
+userGeneratedPageController(router, models);
 
 // router.get('/', function(req, res) {
 //     res.redirect('/classify');
