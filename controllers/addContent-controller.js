@@ -8,37 +8,29 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
-         var data = req.body;
-         models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
-             userID = res.id;
-             domain = res.domain;
-         }).then(function(res) {
-             models.userPage.create({
-                 title: req.body.pageName,
-                 userID: userID,
-                 domain: domain,
-                 template: "student"
-             })
+             var data = JSON.stringify(req.body);
              pageName = req.body.pageName;
-         }).then(function() {
-             models.userPage.findOne({
-                 where: {
-                     userID: userID,
-                     title: pageName
-                 }
-             }).then(function(res) {
-                 pageID = res.id;
+             models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
+                 userID = res.id;
+                 domain = res.domain;
              }).then(function() {
-                 for (var i = 0; i < data.content.length; i++) {
-                     models.userContent.create({
-                         name: DataTypes.STRING,
-                         data: DataTypes.STRING,
-                         dataType: DataTypes.STRING,
-                         pageID: DataTypes.INTEGER,
-                         pagePosition: DataTypes.INTEGER
-                     })
-                 }
-             })
-         })
-     });
- }
+                 models.userPage.create({
+                     title: req.body.pageName,
+                     userID: userID,
+                     domain: domain,
+                     template: "student"
+                 })
+             }).then(function() {
+             	// this fires after the userPage.create. find a way to make it fire synchronously.
+                 models.userPage.findOne({
+                     where: {
+                         userID: userID,
+                         title: pageName
+                     }
+                 })
+             }).then(function(res) {
+                 console.log(res);
+                 pageID = res.id;
+            })
+    })
+};
