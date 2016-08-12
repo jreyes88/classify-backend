@@ -6,9 +6,9 @@
      var domain;
      var pageID;
      var pageName;
-     3
+
      app.post('/addcontent', function(req, res) {
-         console.log(req.body);
+         var data = req.body;
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
              domain = res.domain;
@@ -27,7 +27,17 @@
                      title: pageName
                  }
              }).then(function(res) {
-                 console.log("THERE SHOULD BE A VALUE HERE: " + res);
+                 pageID = res.id;
+             }).then(function() {
+                 for (var i = 0; i < data.content.length; i++) {
+                     models.userContent.create({
+                         name: DataTypes.STRING,
+                         data: DataTypes.STRING,
+                         dataType: DataTypes.STRING,
+                         pageID: DataTypes.INTEGER,
+                         pagePosition: DataTypes.INTEGER
+                     })
+                 }
              })
          })
      });
