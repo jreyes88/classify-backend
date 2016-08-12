@@ -8,11 +8,11 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
-         var data = req.body;
+         var data = JSON.stringify(req.body);
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
              domain = res.domain;
-         }).then(function(res) {
+         }).then(function() {
              models.userPage.create({
                  title: req.body.pageName,
                  userID: userID,
@@ -20,25 +20,28 @@
                  template: "student"
              })
              pageName = req.body.pageName;
-         }).then(function() {
-             models.userPage.findOne({
+         });
+         models.userPage.findOne({
                  where: {
-                     userID: userID,
-                     title: pageName
+                     userID: userID
                  }
              }).then(function(res) {
-                 pageID = res.id;
-             }).then(function() {
-                 for (var i = 0; i < data.content.length; i++) {
-                     models.userContent.create({
-                         name: DataTypes.STRING,
-                         data: DataTypes.STRING,
-                         dataType: DataTypes.STRING,
-                         pageID: DataTypes.INTEGER,
-                         pagePosition: DataTypes.INTEGER
-                     })
-                 }
+                 console.log(res);
+                 // pageID = res.id;
              })
-         })
+             // .then(function() {
+             //     for (var i = 0; i < data.content.length; i++) {
+             //         models.userContent.create({
+             //             name: data.content[i].name,
+             //             data: data[i].data,
+             //             dataType: data.content[i].dataType,
+             //             pageID: pageID,
+             //             pagePosition: data.content[i].pagePosition
+             //         }).then(function(){
+             //         	console.log('check the fucking database');
+             //         })
+             //     }
+             // })
+             // })
      });
  }
