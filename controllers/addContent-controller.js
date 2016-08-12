@@ -6,9 +6,9 @@
      var domain;
      var pageID;
      var pageName;
-   
+
      app.post('/addcontent', function(req, res) {
-     			var data = req.body;
+         var data = req.body;
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
              domain = res.domain;
@@ -28,12 +28,16 @@
                  }
              }).then(function(res) {
                  pageID = res.id;
-             }).then(function(){
-             	for (var i =0; i < data.content.length; i ++){
-             			models.userContent.create({
-             				
-             			})
-             	}
+             }).then(function() {
+                 for (var i = 0; i < data.content.length; i++) {
+                     models.userContent.create({
+                         name: DataTypes.STRING,
+                         data: DataTypes.STRING,
+                         dataType: DataTypes.STRING,
+                         pageID: DataTypes.INTEGER,
+                         pagePosition: DataTypes.INTEGER
+                     })
+                 }
              })
          })
      });
