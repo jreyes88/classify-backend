@@ -2,34 +2,32 @@
 Classify is a Content Management System built for ease of use with teachers in mind. Instructors need a painless and clutter-free way to electronically distribute course resources to their students, and Classify aims to do just that.
 <br>
 Currently supported media types include:
-Text
-URLs
-YouTube Videos
-Google Calendars
-
+*Text
+*URLs
+*YouTube Videos
+*Google Calendars
+<br>
 Further iterations of Classify will support:
-File upload
-Images
-Giphy API integration
+*File upload
+*Images
+*Giphy API integration
 
 ## Authors:
 Front End Design:
-Lisa Battle
-John Flores
+*Lisa Battle
+*John Flores
 <br>
 Back End Architecture:
-Chance Eakin
-Joey Reyes
-Derrick Suarez
+*Chance Eakin
+*Joey Reyes
+*Derrick Suarez
 
 ## Dependencies:
-bcrypt
-body-parser
-express
-express session
-method-override
-mysql
-sequelize
-sequelize-cli
-
-werwefwefwef
+*bcrypt
+*body-parser
+*express
+*express session
+*method-override
+*mysql
+*sequelize
+*sequelize-cli
