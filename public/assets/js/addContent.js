@@ -1,40 +1,42 @@
 $(document).ready(function() {
     $('#contentSubmit').on('click', function() {
-        var data = {
-                pageName: localStorage.getItem("headerName"),
-                username: sessionStorage.username,
-                content: [{
-                    //header
-                    name: localStorage.getItem("headerName"),
-                    data: localStorage.getItem("headerSubData"),
-                    dataType: localStorage.getItem("headerDataType"),
-                    pagePosition: localStorage.getItem("headerPagePosition")
-                }, {
-                    //calendar
-                    name: localStorage.getItem("calendarName"),
-                    data: localStorage.getItem("calendarData"),
-                    dataType: localStorage.getItem("calendarDataType"),
-                    pagePosition: localStorage.getItem("calendarPagePosition")
-                }, {
-                    //youtube
-                    name: localStorage.getItem("youTubeName"),
-                    data: localStorage.getItem("youTubeData"),
-                    dataType: localStorage.getItem("youTubeDataType"),
-                    pagePosition: localStorage.getItem("youTubePagePosition")
-                }, {
-                    //text
-                    name: localStorage.getItem("textName"),
-                    data: localStorage.getItem("textData"),
-                    dataType: localStorage.getItem("textDataType"),
-                    pagePosition: localStorage.getItem("textPagePosition")
-                }]
+        var pageName = localStorage.getItem("headerName");
+        var username = sessionStorage.username;
+        var content = {
+            header: {
+                name: localStorage.getItem("headerName"),
+                data: localStorage.getItem("headerSubData"),
+                dataType: localStorage.getItem("headerDataType"),
+                pagePosition: localStorage.getItem("headerPagePosition")
+            },
+            calendar: {
+                //calendar
+                name: localStorage.getItem("calendarName"),
+                data: localStorage.getItem("calendarData"),
+                dataType: localStorage.getItem("calendarDataType"),
+                pagePosition: localStorage.getItem("calendarPagePosition")
+            },
+            youTube: {
+                //youtube
+                name: localStorage.getItem("youTubeName"),
+                data: localStorage.getItem("youTubeData"),
+                dataType: localStorage.getItem("youTubeDataType"),
+                pagePosition: localStorage.getItem("youTubePagePosition")
+            },
+            text: {
+                //text
+                name: localStorage.getItem("textName"),
+                data: localStorage.getItem("textData"),
+                dataType: localStorage.getItem("textDataType"),
+                pagePosition: localStorage.getItem("textPagePosition")
             }
-
+        };
+        console.log(content.text.name);
         $.ajax({
                 url: '/addcontent',
                 type: 'POST',
-                dataType: 'JSON',
-                data: data
+                dataType: 'text',
+                data: { pageName: pageName, username: username, content: content }
             })
             .done(function(res) {
                 console.log(res.done + " " + res.status);

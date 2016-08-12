@@ -9,10 +9,10 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                userID.belongsTo(userPage, {foreignKey: 'fk_id', tarketKey: 'domain'});
-                // userID.hasMany(models.userPage, {
-                //     onDelete: 'cascade'
-                // });
+                userID.hasMany(models.userPage, {
+                    onDelete: 'cascade',
+                    foreignKey: 'userId'
+                });
             }
         }
     });

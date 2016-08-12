@@ -19,9 +19,11 @@ app.use(express.static(process.cwd() + '/public'));
 
 // Parse incoming responses into body
 // ===============================================
+app.use( bodyParser.json());  
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
 
 // Set up sessions
 // ===============================================
