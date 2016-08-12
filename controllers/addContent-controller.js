@@ -1,4 +1,4 @@
- // any route that requires a login authentication
+// any route that requires a login authentication
  module.exports = function(app, models) {
      console.log('addContent controller loaded.');
 
@@ -8,10 +8,9 @@
      var pageName;
 
      app.post('/addcontent', function(req, res) {
+
         console.log(req.body);
-        console.log(req.body.content.header.name);
          var data = req.body;
-         console.log('BODY CONTENT: ' + data);
          models.userID.findOne({ where: { username: req.body.username } }).then(function(res) {
              userID = res.id;
              domain = res.domain;
