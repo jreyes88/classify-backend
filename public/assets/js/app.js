@@ -54,7 +54,6 @@ $( "#mediaSubmit" ).click(function() {
 
 $( "#textSubmit" ).click(function() {
     var wireframeText = ($("textarea#textarea1").val());
-    console.log(wireframeText);
   $( "#wireframe").append( $('<p>' + wireframeText + '</p>'));
 
   clickCount++
