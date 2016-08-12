@@ -23,17 +23,17 @@
                  pageID = res.dataValues.id;
              }).then(function() {
                 console.log(data);
-                 for (var i = 0; i < data.content.length; i++) {
-                     models.userContent.create({
-                         name: data.content[i].name,
-                         data: data[i].data,
-                         dataType: data.content[i].dataType,
-                         pageId: pageID,
-                         pagePosition: data.content[i].pagePosition
-                     }).then(function() {
-                         console.log('check the fucking database');
-                     })
-                 }
+                 // for (var i = 0; i < data.content.length; i++) {
+                 //     models.userContent.create({
+                 //         name: data.content[i].name,
+                 //         data: data[i].data,
+                 //         dataType: data.content[i].dataType,
+                 //         pageId: pageID,
+                 //         pagePosition: data.content[i].pagePosition
+                 //     }).then(function() {
+                 //         console.log('check the fucking database');
+                 //     })
+                 // }
              })
          })
      })
