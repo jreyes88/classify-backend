@@ -19,20 +19,26 @@ Further iterations of Classify will support:
 <br>
 ## Authors:
 Front End Design:
-*Lisa Battle
-*John Flores
+<ul>
+	<li>Lisa Battle</li>
+	<li>John Flores</li>
+</ul>
 <br>
 Back End Architecture:
-*Chance Eakin
-*Joey Reyes
-*Derrick Suarez
+<ul>
+	<li>Chance Eakin</li>
+	<li>Joey Reyes</li>
+	<li>Derrick Suarez</li>
+</ul>
 
 ## Dependencies:
-*bcrypt
-*body-parser
-*express
-*express session
-*method-override
-*mysql
-*sequelize
-*sequelize-cli
+<ul>
+	<li>bcrypt</li>
+	<li>body-parser</li>
+	<li>express</li>
+	<li>express session</li>
+	<li>method-override</li>
+	<li>mysql</li>
+	<li>sequelize</li>
+	<li>sequelize-cli</li>
+</ul>
