@@ -28,12 +28,22 @@ Further iterations of Classify will support:
 
 ### Dependencies:
 <ul>
-	<li>bcrypt</li>
-	<li>body-parser</li>
-	<li>express</li>
-	<li>express session</li>
-	<li>method-override</li>
-	<li>mysql</li>
-	<li>sequelize</li>
-	<li>sequelize-cli</li>
+	<li><a href="https://www.npmjs.com/package/bcrypt">bcrypt</a></li>
+	<li><a href="https://www.npmjs.com/package/body-parser-json">body-parser</a></li>
+	<li><a href="https://expressjs.com/">Express</a></li>
+	<li><a href="https://github.com/expressjs/session">Express Session</a></li>
+	<li><a href="http://www.w3schools.com/sql/">SQL</a></li>
+	<li><a href="http://docs.sequelizejs.com/en/v3/">sequelize</a></li>
 </ul>
+
+### Miscellaneous Stuff:
+Classify was built by the Doomsquad as a full stack collaborative project for the Coding Boot Camp at the University of Texas at Austin. The research and development consisted of constructing numerous static pages, deconstructing open source CMS projects such as <a href="https://ghost.org/">Ghost</a> and <a href="http://cody-cms.org/en/">Cody</a>, and the consumption of innumerable cups of coffee.
+<br>
+We hope you enjoy what we have built. New features and improvements are forthcoming.
+<br>
+If you feel inspired to fix any bugs or add any new features, feel free to send us a pull request.
+<br>
+<br>
+With love,
+<br>
+Doomsquad
