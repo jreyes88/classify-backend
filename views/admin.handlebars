@@ -2,7 +2,7 @@
         <li>
             <div class="userView">
                 <img class="background" src="/assets/classify.png">
-                {{!-- <a href="#!user"><img class="circle" src="https://avatars3.githubusercontent.com/u/17986811?v=3&u=fc232e3efc6df3bcccd931ec13e31bb27beca547&s=140"></a> --}}
+                {{!-- <a href="#!user"><img src="https://avatars3.githubusercontent.com/u/17986811?v=3&u=fc232e3efc6df3bcccd931ec13e31bb27beca547&s=140"></a> --}}
                 <a href="#!name"><span class=" outline">{{this.username}}</span></a>
                 <a href="#!email"><span class=" outline">{{this.email}}</span></a>
             </div>
@@ -11,16 +11,13 @@
         <li>
             <div class="divider"></div>
         </li>
-         <li><a class="btn tooltipped light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="View your other pages here!" href="preview.html">View my Pages</a></li>
-        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Title your page here!" href="#header-modal">Header</a></li>
+        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Start here!" href="#header-modal">Header</a></li>
         <!-- <li><div class="divider"></div></li> -->
-        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Use this to display events!" href="#calendar-modal">Calendar</a></li>
+        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Embed Google Calendar" href="#calendar-modal">Calendar</a></li>
         <!--  <li><div class="divider"></div></li> -->
-        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Videos go here" href="#media-modal">Media</a></li>
+        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Embed YouTube videos" href="#media-modal">Media</a></li>
         <!--  <li><div class="divider"></div></li> -->
-        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="...it's text" href="#text-modal">Text</a></li>
-        <!--  <li><div class="divider"></div></li> -->
-        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Display multiple photos, with style!" href="#photo-modal">Photo carousel</a></li>
+        <li><a class="btn tooltipped modal-trigger light-blue lighten-1 white-text" data-position="right" data-delay="50" data-tooltip="Paragraphs" href="#text-modal">Text</a></li>
     </ul>
     <div class="container">
         <!-- Here lies the modal for header input -->
@@ -155,10 +152,9 @@
         <!-- wireframe -->
         <div id="wireframe">
         </div>
-        <br>
-        <button class = "btn squadSubmit orange lighten-2 white-text" id="contentSubmit">
-            Publish!
-        </button>
+            <button class = "btn squadSubmit orange lighten-2 white-text" id="contentSubmit">
+                Publish!
+            </button>
     </div>
 
      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
