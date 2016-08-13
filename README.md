@@ -16,7 +16,7 @@ Further iterations of Classify will support:
 	<li>Images</li>
 	<li>Giphy API integration</li>
 </ul>
-<br>
+
 ### Authors:
 Classify Team
 <ul>
