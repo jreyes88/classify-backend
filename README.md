@@ -17,8 +17,7 @@ Further iterations of Classify will support:
 	<li>Giphy API integration</li>
 </ul>
 
-### Authors:
-Classify Team
+### Classify Team:
 <ul>
 	<li>Lisa Battle</li>
 	<li>John Flores</li>
