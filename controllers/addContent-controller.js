@@ -50,9 +50,8 @@
                      pageId: pageID,
                      pagePosition: data.textPagePosition
                  });
-                 console.log('check the mother fucking database');
-                 res.end();
              })
          })
      })
+
  };
