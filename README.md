@@ -19,11 +19,11 @@ Further iterations of Classify will support:
 
 ### Classify Team:
 <ul>
-	<li>Lisa Battle</li>
-	<li>John Flores</li>
-	<li>Chance Eakin</li>
-	<li>Joey Reyes</li>
-	<li>Derrick Suarez</li>
+	<li><a href="https://github.com/lisabattle">Lisa Battle</a></li>
+	<li><a href="https://github.com/chanceeakin/">Chance Eakin</a></li>
+	<li><a href="https://github.com/johnroyflores">John Flores</a></li>
+	<li><a href="https://github.com/jreyes88/">Joey Reyes</a></li>
+	<li><a href="https://github.com/dsuare1">Derrick Suarez</a></li>
 </ul>
 
 ### Dependencies:
