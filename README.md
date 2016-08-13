@@ -1,5 +1,5 @@
 # classify-backend
-Classify is a Content Management System built for ease of use with teachers in mind. Instructors need a painless and clutter-free way to electronically distribute course resources to their students, and Classify aims to do just that.
+Classify is a Content Management System built for ease of use with teachers in mind. Classify gives instructors  a way to distribute course resources to their students with ease.
 <br>
 <br>
 Currently supported media types include:
@@ -17,21 +17,17 @@ Further iterations of Classify will support:
 	<li>Giphy API integration</li>
 </ul>
 <br>
-## Authors:
-Front End Design:
+### Authors:
+Classify Team
 <ul>
 	<li>Lisa Battle</li>
 	<li>John Flores</li>
-</ul>
-<br>
-Back End Architecture:
-<ul>
 	<li>Chance Eakin</li>
 	<li>Joey Reyes</li>
 	<li>Derrick Suarez</li>
 </ul>
 
-## Dependencies:
+### Dependencies:
 <ul>
 	<li>bcrypt</li>
 	<li>body-parser</li>
