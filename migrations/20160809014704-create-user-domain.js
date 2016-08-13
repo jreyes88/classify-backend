@@ -14,7 +14,7 @@ module.exports = {
             domainName: {
                 type: Sequelize.STRING
             },
-            pageID: {
+            pageId: {
                 type: Sequelize.INTEGER
             },
             createdAt: {
