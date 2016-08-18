@@ -1,3 +1,26 @@
-<div class="header">
-<h1>Student View</h1>
-</div>
+<h1 class =lighten-2>{{ this.pageName }}</h1>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar">
+        <iframe src={{this.pTwoData}}></iframe>
+        </div>
+
+        <!-- YouTube -->
+        <div class="youtube">
+        <iframe width="560" height="315" src={{ this.pThreeData }} frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Text -->
+        <div class="text">
+        <p>{{ this.pFourData }}</p>
+        </div>
+
+        <!-- Carousel -->
+   	<script>
+   	console.log(hbsObj);
+   	</script>
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>

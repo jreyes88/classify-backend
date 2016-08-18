@@ -1,4 +1,4 @@
-/* Custom Stylesheet */
+* Custom Stylesheet */
 /**
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
@@ -6,15 +6,14 @@
  * Made By MaterializeCSS.com
  */
 
-
 @font-face{
 font-family: englishessay;
 src:url('../fonts/english_essay.ttf');
 }
 
 @font-face{
-	font-family: barbarian;
-	src:url('../fonts/Barbarian.ttf');
+  font-family: barbarian;
+  src:url('../fonts/Barbarian.ttf');
 }
 
 @font-face{
@@ -31,30 +30,34 @@ src:url('../fonts/english_essay.ttf');
   padding: 0 15px;
 }
 .icon-block .material-icons {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 .classify{
-	font-family: kindergarten;
+  font-family: kindergarten;
 }
 
 .doomsquad{
-	font-family: barbarian;
-	font-size: 40px;
-	color:black;
+  font-family: barbarian;
+  font-size: 40px;
+  color:black;
 }
 
 .squad{
-	font-size: 190px;
-	font-family: barbarian;
+  font-size: 190px;
+  font-family: barbarian;
 }
 
 /*.side-nav{
-	display: inline;
+  display: inline;
 }*/
 
 li{
-	margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.subheader {
+  font-size: 20px !important;
 }
 
 .outline{
@@ -106,11 +109,11 @@ li{
 
 
 .modalHead{
-	text-align: center;
+  text-align: center;
 }
 
 .input-field{
-	transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
 }
 
 .tooltipped{
@@ -119,7 +122,10 @@ li{
 
 /*header*/
 .squadBody {
-  margin-left: 31vw;
+  position: relative;
+  right: 0;
+  top: 0;
+  margin-right: 5%;
   width: 60vw;
 }
 
@@ -142,13 +148,66 @@ iframe {
 }
 
 .squadSubmit{
-  position: fixed;
-  bottom: 12%;
-  right:12%;
+  position: relative;
+  bottom: 100%;
+  margin: 2%;
+  left: 80%;
 }
 
 .wireframePhoto {
   width: 40vw;
   height: 25vw;
   margin: 0 auto;
+
+}
+
+#contentSubmit {
+}
+
+#loginSubmit, #signupSubmit {
+  position: relative;
+  left: 70%;
+}
+
+form {
+  overflow: visible;
+}
+
+.header {
+  font-family: kindergarten;
+  color:#ffb74d;
+}
+
+.userView {
+  width: 100%;
+  height: 18vh;
+}
+
+
+.calendar {
+ 
+position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
+ 
+}
+ 
+.calendar iframe {
+ 
+position: absolute; top:0; left: 0; width: 100%; height: 100%;
+ 
+}
+
+.youtube {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:30px;
+  height:0;
+  overflow:hidden;
+}
+
+.youtube iframe, .youtube object, .youtube embed {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }

@@ -1,0 +1,15 @@
+{
+	//generates new row in userPages
+	"pageName": "headerTitle",
+	"userName": "",
+	//generates rows in userContent in userContent
+	"content": [{ 
+		"headerTitle": "headerTitle",
+		"subHeader": "subHeader"
+	},
+	{
+		"mediaTitle": "mediaTitle",
+		"mediaData": "mediaData"
+	}
+	]
+}

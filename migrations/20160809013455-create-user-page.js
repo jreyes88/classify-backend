@@ -11,7 +11,7 @@ module.exports = {
             title: {
                 type: Sequelize.STRING
             },
-            userID: {
+            userId: {
                 type: Sequelize.INTEGER
             },
             domain: {
