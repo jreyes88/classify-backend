@@ -1,4 +1,3 @@
-var authenticate = require('../app/Authenticate.js');
 var bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
