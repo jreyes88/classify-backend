@@ -1,12 +1,11 @@
-// var authenticate = require('../app/Authenticate.js');
-var bcrypt = require('bcrypt');
+var authenticate = require('../app/Authenticate.js');
+var bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 module.exports = function(app, models) {
     console.log('login controller loaded.');
     var sessionUser;
     app.get('/admin', function(req, res) {
-
         if (!sessionUser) {
             return res.status(401).send();
         } else {
@@ -38,8 +37,7 @@ module.exports = function(app, models) {
                     });
                 } else {
                     console.log('no user found');
-                    res.status(404).send();
-                    res.redirect('/');
+                    return res.status(404).send();
                 }
             });
     });
