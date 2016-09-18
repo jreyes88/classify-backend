@@ -49,25 +49,12 @@ module.exports = function(app, models) {
                 if (duplicateUser) {
                     res.redirect('/signup');
                 } else {
-<<<<<<< HEAD
-
-
-                    console.log('signing up!');
-=======
->>>>>>> 71b3236aa2893e96953ff0aa19254cb1bf05c40d
                     var hashedPassword = bcrypt.hash(req.body.signupPw, saltRounds, function(err, hash) {
                         if (err) {
                             throw err;
                         } else {
                             var hashedPassword = hash;
                         };
-<<<<<<< HEAD
-                        console.log(hashedPassword);
-
-                        console.log(req.body);
-
-=======
->>>>>>> 71b3236aa2893e96953ff0aa19254cb1bf05c40d
                         models.userID.create({
                             name: req.body.signupName,
                             username: req.body.signupUsername,
@@ -81,9 +68,5 @@ module.exports = function(app, models) {
                     });
                 }
             })
-<<<<<<< HEAD
-
-=======
->>>>>>> 71b3236aa2893e96953ff0aa19254cb1bf05c40d
     })
 };
