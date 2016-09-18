@@ -57,27 +57,5 @@ module.exports = function(app, models) {
                 })
             })
         })
-
-<<<<<<< HEAD
-		var paramsUser = req.params.username;
-		console.log("params user ==== " + JSON.stringify(paramsUser, null, 2));
-		// var activeUser;
-		console.log(req.params);
-		models.userID.findOne({ where: { username: paramsUser}})
-		.then(function(res){
-			// activeUser = res;
-			console.log("Test Stuff ===========" + JSON.stringify(res));
-		})
-		// models.userContent.create({
-
-		// })
-
-		// models.userPage.create({
-
-		// })
-	});
-};
-=======
     });
 };
->>>>>>> 71b3236aa2893e96953ff0aa19254cb1bf05c40d
